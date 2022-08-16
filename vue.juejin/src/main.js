@@ -6,7 +6,6 @@ import '@/css/base.css'
 import '@/css/element-variables.scss'
 
 Vue.config.productionTip = false
-
 new Vue({
   router,
   render: h => h(App)
