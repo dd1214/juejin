@@ -1,5 +1,6 @@
 <!-- 副导航栏中的每一项（可以有弹出卡片） -->
 <template>
+<div>
 <li 
   @mouseenter="isShow = !isShow" 
   @mouseleave="isShow = !isShow"
@@ -15,6 +16,7 @@
     </div>
   </template>
 </li>
+</div>
 </template>
 
 <script>
