@@ -90,7 +90,6 @@ export default {
   height: 64px;
   align-items: center;
   background-color: white;
-
   border-bottom: 1px solid #f2f3f5;
 
   // logo 区域

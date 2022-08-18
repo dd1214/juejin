@@ -41,7 +41,6 @@ ul{
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
-
   width: auto;
   height: 46px;
   padding: 10px 20px;  

@@ -1,7 +1,7 @@
 <template>
 <div>
   <!-- 上半区 -->
-
+  <Navbar/>
   <!-- 下半区 -->
    <div class="flex flex1" >
     <!-- 左边占位 -->
@@ -38,11 +38,12 @@
 <script>
 import Article from './components/article.vue'
 import Adv from './components/adv.vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'App',
   components: {
-    Article,Adv
+    Article,Adv,Navbar
   }
 }
 </script>

@@ -54,7 +54,6 @@ export default {
 li{
   justify-content: center;
   align-items: center;
-
   position: relative;
 
   height: 100%;
