@@ -15,10 +15,10 @@
             <el-link href="" target="_blank" class="flex mg14 font-size14">热榜</el-link>
           </div>
           <!-- 无限滚动文章 -->
-          <Article artTitle=文章1 />
-          <Article artTitle=文章2 />
-          <Article artTitle=文章3 />
-          <Article artTitle=文章4 />
+          <Essay EssayTitle=文章1 />
+          <Essay EssayTitle=文章2 />
+          <Essay EssayTitle=文章3 />
+          <Essay EssayTitle=文章4 />
       </div>
       <!-- 右区 -->
       <div style="flex: 2" class="flex  mgr8 mgt8">
@@ -36,14 +36,14 @@
 </template>
 
 <script>
-import Article from './components/article.vue'
+import Essay from './components/Essay'
 import Adv from './components/adv.vue'
 import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'App',
   components: {
-    Article,Adv,Navbar
+    Essay,Adv,Navbar
   }
 }
 </script>
