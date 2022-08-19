@@ -7,7 +7,7 @@ export default {
     name:'adv',
     props: ['advTitle'], 
     data(){
-        return {advTitle:'广告'}
+        return {}
     }
 }
 </script>
