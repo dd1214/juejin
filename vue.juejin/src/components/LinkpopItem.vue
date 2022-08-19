@@ -75,7 +75,7 @@ li{
     // border: 1px solid pink;
     z-index: 2;
     &::before{
-      content: 'BBB';
+      content: 'BBBBBB';
       position: absolute;
       top: -20px;
       width: 28px;
@@ -86,7 +86,7 @@ li{
       display: flex;
       justify-content: flex-start;
       align-items: center;
-
+      flex-wrap: wrap;
       list-style: none;
 
       li{
