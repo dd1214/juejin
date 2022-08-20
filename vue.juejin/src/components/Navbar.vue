@@ -23,13 +23,12 @@
 
       <!-- 完整的导航链接 -->
       <el-menu default-active="1" class="nav-link" mode="horizontal">
-        <el-menu-item index="1">首页</el-menu-item>
-        <el-menu-item index="2">沸点</el-menu-item>
-        <el-menu-item index="3">直播</el-menu-item>
-        <el-menu-item index="4">活动</el-menu-item>
-        <el-menu-item index="5">商城</el-menu-item>
-        <el-menu-item index="6">APP</el-menu-item>
-        <el-menu-item index="7">插件</el-menu-item>
+        <el-menu-item index="1"><el-link>首页</el-link></el-menu-item>
+        <el-menu-item index="2"><el-link href="https://juejin.cn/pins" target="_blank">沸点</el-link></el-menu-item>
+        <el-menu-item index="3"><el-link href="https://juejin.cn/course" target="_blank">课程</el-link></el-menu-item>
+        <el-menu-item index="4"><el-link href="https://juejin.cn/live" target="_blank">直播</el-link></el-menu-item>
+        <el-menu-item index="5"><el-link href="https://juejin.cn/events/all" target="_blank">活动</el-link></el-menu-item>
+        <el-menu-item index="6"><el-link href="https://element.eleme.io" target="_blank">商城</el-link></el-menu-item>
       </el-menu>
     </el-col>
 
