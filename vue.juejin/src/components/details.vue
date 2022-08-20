@@ -1,163 +1,173 @@
 <template>
-  <div class="container">
-    <div class="wrapper">
-      <div
-        class="section"
-        style="height: 500px; width: 100%"
-        v-for="(item, index) in list"
+  <div class="icon-sources-wrapper wrapper">
+    <Navbar/>
+    <el-main>
+      <h1 id="0">一级目录</h1>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h2 id="1">二级目录</h2>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h3 id="1">三级目录</h3>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h1 id="0">一级目录</h1>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h4 id="1">四级目录1</h4>
+      <p>
+        日光之下无新事，世间处处是围城。有的人死了他还活着，有的人活着他已经死了，方鸿渐30岁以后的生活，就符合后一种。
+        事业上，方鸿渐自命不凡却一事无成，每份工作，都是在糊里糊涂中就遭了嫌弃。
+        爱情上，他茫然被动，不喜欢苏文纨，却没勇气拒绝，倾心唐晓芙，却不会争取。
+        朋友提醒他，孙柔嘉心机深，对他煞费苦心，他却觉得“承她瞧得起，应当珍惜她”。
+        最后，方鸿渐落入孙柔嘉精心编织的网中，顺水推舟结了婚，种下了他们往后余生，日复一日争吵的因。
+        有一句话说：“生命绚烂的人，都是受到某些力量所驱使。”
+      </p>
+      <h4 id="">四级目录2</h4>
+      <p>
+        而有些人，睡着和醒着，都是在无意义地游荡人间。
+        不知所因，不知所终，任由人世洪流裹挟着前行，最终遭受到了生活的重击。
+        没有梦，没有想法的一生，就无异于死的样品。
+      </p>
+    </el-main>
+    <el-aside>
+      <div style="margin:0 0 0 180px;font-size:18px;font-weight:bold">目录</div>
+      <el-tabs @tab-click="handleClick" v-model="activeName" :tab-position="tabPosition" style="height: auto;">
+        <el-tab-pane :name="'tab'+index"
+        :class="item.lev"
+        :v-for="(irem,index)in navList"
         :key="index"
-        :style="{ height: index == 0 ? '1000px' : '500px' }"
-      >
-        <div
-          style="
-            width: 100%;
-            height: 100%;
-            font-size: 30px;
-            text-align: center;
-            font-weight: bold;
-            color: #fff;
-          "
-          :style="{ background: item.backgroundcolor }"
-        >
-          {{ item.name }}
-        </div>
-      </div>
-    </div>
-    <div id="nac" style="height: 500px"></div>
-    <nav style="position: fixed; right: 30px; top: 300px">
-      <div style="margin-left: 20px; font-size: 16px">目录</div>
-      <el-tabs
-        @tab-click="handleClick"
-        v-model="activeName"
-        :tab-position="tabPosition"
-        style="height: 200px"
-      >
-        <el-tab-pane
-          :name="'tab' + index"
-          :class="index == 0 ? 'current' : ''"
-          v-for="(item, index) in list"
-          :key="index"
-          :label="item.name"
-        ></el-tab-pane>
+        :label="item.name">
+        </el-tab-pane>
       </el-tabs>
-    </nav>
+    </el-aside>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      activeName: "tab0",
-      tabPosition: "right",
-      scroll: "",
-      list: [
-        {
-          name: "第一条",
-          backgroundcolor: "#90B2A3",
-        },
-        {
-          name: "第二条",
-          backgroundcolor: "#A593B2",
-        },
-        {
-          name: "第三条",
-          backgroundcolor: "#A7B293",
-        },
-        {
-          name: "第四条",
-          backgroundcolor: "#0F2798",
-        },
-        {
-          name: "第五条",
-          backgroundcolor: "#0A464D",
-        },
-      ],
-      navList: [1, 2, 3, 4, 5],
-    };
-  },
-  methods: {
-    //这里传入的tab相当于item
-    handleClick(tab, event) {
-      console.log(tab.index);
-      this.jump(tab.index);
+import Navbar from './Navbar.vue';
+  export default{
+    data() {
+        return {
+            activeName: "tab0",
+            tabPosition: "right",
+            scroll: "",
+            navList: [],
+        };
     },
-    dataScroll: function () {
-      this.scroll =
-        document.documentElement.scrollTop || document.body.scrollTop;
-    },
-    jump(index) {
-      let jump = document.getElementsByClassName("section");
-      // 获取需要滚动的距离
-      let total = jump[index].offsetTop;
-      // Chrome
-      document.body.scrollTop = total;
-      // Firefox
-      document.documentElement.scrollTop = total;
-      // Safari
-      window.pageYOffset = total;
-      // $('html, body').animate({
-      // 'scrollTop': total
-      // }, 400);
-    },
-    // 用循环的方式将每个标题离顶部的距离与滚动条当前位置对比来确定哪个标题需要变为高亮
-    loadScroll: function () {
-      var self = this;
-      var sections = document.getElementsByClassName("section");
-      for (var i = sections.length - 1; i >= 0; i--) {
-        if (self.scroll >= sections[i].offsetTop - 100) {
-          //我在上面规定了每个el-tab-pane标签的name属性值为tab+该标签的index值
-          self.activeName = "tab" + i;
-          break;
+    methods: {
+        handClick(tab, event) {
+            this.jump(tab.index);
+        },
+        dataScroll: function () {
+            this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        },
+        jump(index) {
+            //获取所有标题
+            let jump = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+            //获取需要滚动的距离
+            let total = jump[index].offsetTop - 80;
+            //兼容性测试
+            //Chrome
+            document.body.scrollTop = total;
+            //firefox
+            document.documentElement.scrollTop = total;
+            //safari
+            window.pageYOffset = total;
+        },
+        loadScroll: function () {
+            let self = this;
+            let navs = document.querySelectorAll(".el-tabs__item");
+            for (var i = self.navList.lenth - 1; i >= 0; i--) {
+                if (self.scroll >= self.navList[i].offsetTop - 120) {
+                    self.activeName = "tab" + i;
+                    break;
+                }
+            }
+        },
+        selectAllTitle() {
+            let title = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+            this.navList = Array.from(title);
+            this.navList.forEach(item => {
+                item.name = item.innerHTML;
+            });
+            this.navList.forEach(el => {
+                let index = el.localName.indexOf("h");
+                el.lev = "lev" + el.localName.substring(index + 1, el.localName.length);
+            });
         }
-      }
     },
-  },
-  watch: {
-    //监听scroll变量，只要滚动条位置变化就会执行方法loadScroll
-    scroll: function () {
-      this.loadScroll();
+    watch: {
+        scroll: function () {
+            this.loadScroll();
+        }
     },
-  },
-  mounted() {
-    // scroll代表滚动条距离页面顶部距离
-    window.addEventListener("scroll", this.dataScroll);
-  },
-};
+    created() {
+    },
+    mounted() {
+        //scroll表示滚动条距离页面顶部的距离
+        window.addEventListener("scroll", this.dataScroll);
+        this.selectAllTitle();
+        this.$nextTick(() => {
+            setTimeout(() => {
+                let navs = document.querySelectorAll(".el-tabs__item");
+                for (let i = navs.length - 1; i >= 0; i--) {
+                    //从lev1到lev5分别添加不同的样式
+                    document.querySelector("#" + navs[i].id).style.padding = "0";
+                    if (this.navList[i].lev == "lev1") {
+                        document.querySelector("#" + navs[i].id).style.paddingLeft = "20px";
+                    }
+                    else if (this.navList[i].lev == "lev2") {
+                        document.querySelector("#" + navs[i].id).style.paddingLeft = "30px";
+                    }
+                    else if (this.navList[i].lev == "lev3") {
+                        document.querySelector("#" + navs[i].id).style.paddingLeft = "40px";
+                    }
+                    else if (this.navList[i].lev == "lev4") {
+                        document.querySelector("#" + navs[i].id).style.paddingLeft = "50px";
+                        document.querySelector("#" + navs[i].id).style.fontWeight = "400";
+                    }
+                    else if (this.navList[i].lev == "lev5") {
+                        document.querySelector("#" + navs[i].id).style.paddingLeft = "60px";
+                        document.querySelector("#" + navs[i].id).style.fontWeight = "400";
+                    }
+                }
+            });
+        });
+    },
+    components: { Navbar, Navbar }
+}
 </script>
-
-<style lang="scss" scoped>
-* {
-  padding: 0;
-  margin: 0;
+<style lang="scss">
+.el-main{
+  width: 900px;
 }
-.nav1 {
-  display: block;
-  width: 120px;
-  height: 40px;
-  text-align: left;
-  line-height: 40px;
-  color: #fff;
-  /* background: #eee; */
-  margin: 10px 0;
-  cursor: pointer;
-  padding-left: 18px;
-  &:hover {
-    color: #0177ff;
-  }
+.el-tabs__header.is-right{
+  height: 500px !important;
 }
-.current {
-  color: #0578fc !important;
-  cursor: pointer;
+.el-aside{
+  position: fixed;
+  top: 108px;
+  right: 160px;
+  width: 220px;
+  height: auto;
 }
-nav {
-  // border-left: 1px solid #eee;
-  a {
-    border-left: 3px solid #0177ff;
-  }
-}
-</style>
-<style>
-.el-tabs__header.is-right {
-  margin-right: 100px !important;
+.icon-sources-wrapper.wrapper .el-tabs__nav.is-right{
+  box-sizing: content-box !important;
 }
 </style>
