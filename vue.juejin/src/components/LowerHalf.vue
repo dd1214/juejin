@@ -16,15 +16,8 @@
           <Essay EssayTitle=文章3 />
           <Essay EssayTitle=文章4 />
       </div>
-      <!-- 右区 -->
-      <div style="flex: 2" class="flex  mgr8 mgt8">
-        <!-- 广告组件 -->
-        <div  class="flex1">
         <Adv/>
-        </div>
-        <!-- 右边占位 -->
-        <div  class="flex flex1 mg8"></div>
-      </div>
+        
     </div>
 </template>
 
