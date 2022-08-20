@@ -1,6 +1,5 @@
 package controller
 
-/*
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -17,19 +16,18 @@ type CommentActionResponse struct {
 	Comment Comment `json:"comment,omitempty"`
 }
 
-// CommentAction no practical effect, just check if token is valid
 func CommentAction(c *gin.Context) {
-	token := c.Query("token")
+	userID := c.Query("user_id")
 	actionType := c.Query("action_type")
-	videoID := c.Query("video_id")
+	articleID := c.Query("article_id")
 
 	dbInit()
 	defer db.Close()
 	var users []dbUser
-	var videos []dbVideo
+	var articles []dbArticle
 	//查询
-	db.Select(&users, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where token=?", token)
-	db.Select(&videos, "select ID, PlayUrl, CoverUrl, FavoriteCount, CommentCount, IsFavorite, Title from Video where ID=?", videoID)
+	db.Select(&users, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where ID=?", userID)
+	db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime from Article where ID=?", articleID)
 
 	if users != nil {
 		if actionType == "1" {
@@ -38,8 +36,8 @@ func CommentAction(c *gin.Context) {
 			_, month, day := time.Now().Date()
 			createData := string(month) + "-" + string(day)
 
-			db.Exec("update Video set CommentCount=? where ID=?", videos[0].CommentCount+1, videoID)
-			db.Exec("insert into Comment(CommentText, CreateDate, ID, UserID, VideoID)value(?, ?, ?, ?, ?)", text, createData, newID, users[0].ID, videoID)
+			db.Exec("update Article set CommentCount=? where ID=?", articles[0].CommentCount+1, articleID)
+			db.Exec("insert into Comment(CommentText, CreateDate, ID, UserID, ArticleID)value(?, ?, ?, ?, ?)", text, createData, newID, userID, articleID)
 
 			var user = User{
 				Id:            users[0].ID,
@@ -59,7 +57,7 @@ func CommentAction(c *gin.Context) {
 			return
 		} else if actionType == "2" {
 			commentID := c.Query("comment_id")
-			db.Exec("update Video set CommentCount=? where ID=?", videos[0].CommentCount-1, videoID)
+			db.Exec("update Article set CommentCount=? where ID=?", articles[0].CommentCount-1, articleID)
 			db.Exec("delete from Comment where ID=?", commentID)
 
 			c.JSON(http.StatusOK, Response{StatusCode: 0, StatusMsg: "Delete comment success"})
@@ -102,6 +100,3 @@ func CommentList(c *gin.Context) {
 		CommentList: comments,
 	})
 }
-
-
-*/

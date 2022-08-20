@@ -4,10 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"net/http"
-	"sync/atomic"
 )
-
-var userIdSequence = int64(1)
 
 type UserLoginResponse struct {
 	Response
@@ -41,7 +38,6 @@ func Register(c *gin.Context) {
 			Response: Response{StatusCode: 1, StatusMsg: "User already exist"},
 		})
 	} else {
-		atomic.AddInt64(&userIdSequence, newID)
 		_, err := db.Exec("insert into User(FollowCount, FollowerCount, ID, IsFollow, Name, token)value(?, ?, ?, ?, ?, ?)", 0, 0, newID, 0, username, token)
 		if err != nil {
 			c.JSON(http.StatusOK, UserLoginResponse{
@@ -68,6 +64,8 @@ func Login(c *gin.Context) {
 	var user []dbUser
 	//查询
 	db.Select(&user, "select ID from User where token=?", token)
+
+	//返回响应
 	if user != nil {
 		c.JSON(http.StatusOK, UserLoginResponse{
 			Response: Response{StatusCode: 0},
@@ -82,13 +80,15 @@ func Login(c *gin.Context) {
 }
 
 func UserInfo(c *gin.Context) {
-	token := c.Query("token")
+	ID := c.Query("id")
 
 	dbInit()
 	defer db.Close()
 	var user []dbUser
 	//查询
-	db.Select(&user, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where token=?", token)
+	db.Select(&user, "select ID, Name, FollowCount, FollowerCount from User where ID=?", ID)
+
+	//返回响应
 	if user != nil {
 		var ResponseUser = User{
 			Id:            user[0].ID,

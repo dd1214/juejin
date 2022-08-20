@@ -12,7 +12,7 @@ type UserListResponse struct {
 }
 
 func RelationAction(c *gin.Context) {
-	token := c.Query("token")
+	userID := c.Query("user_id")
 	actionType := c.Query("action_type") // 1表示关注，2表示取消关注
 	toUserID := c.Query("to_user_id")
 	dbInit()
@@ -20,9 +20,10 @@ func RelationAction(c *gin.Context) {
 	var user []dbUser
 	var toUser []dbUser
 	//查询用户是否存在
-	db.Select(&user, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where token=?", token)
+	db.Select(&user, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where ID=?", userID)
 	db.Select(&toUser, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where ID=?", toUserID)
 
+	//若对自己操作，则无效
 	if user[0].ID == toUser[0].ID {
 		return
 	}
