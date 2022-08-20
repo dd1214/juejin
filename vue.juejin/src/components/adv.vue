@@ -1,14 +1,27 @@
 <template>
         <div class="mgt8 h200w240" >
+            <div class="outsideDiv " >
+            <img :src="adv1" class="h200w240" v-show="item1">     
+            <div class="insideDiv">
             <i class="el-icon-close" v-show="item1" @click="click1"></i>
-            <img :src="adv1" class="h200w240" v-show="item1"> 
-
+            </div>
+            </div> 
+            
+            <div class="outsideDiv" style="top:340px">
+            <img :src="adv2" class="h200w240" v-show="item2">     
+            <div class="insideDiv">
             <i class="el-icon-close" v-show="item2" @click="click2"></i>
-            <img :src="adv2" class="h200w240" v-show="item2"> 
-
+            </div>
+            </div> 
+            
+            <div class="outsideDiv" style="top:555px">
+            <img :src="adv3" class="h200w240" v-show="item3">     
+            <div class="insideDiv">
             <i class="el-icon-close" v-show="item3" @click="click3"></i>
-            <img :src="adv3" class="h200w240" v-show="item3">
-        </div>
+            </div>
+            </div> 
+
+             </div>
 </template>
 
 <script>
@@ -38,5 +51,11 @@ export default {
 }
 </script>
 <style scoped>
-
+.outsideDiv {
+    position:absolute;
+    }
+.insideDiv {
+    position:absolute;
+    right:0;
+    top:0;}
 </style>
