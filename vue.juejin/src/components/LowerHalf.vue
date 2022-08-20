@@ -20,9 +20,7 @@
       <div style="flex: 2" class="flex  mgr8 mgt8">
         <!-- 广告组件 -->
         <div  class="flex1">
-        <Adv advTitle=广告1 />
-        <Adv advTitle=广告2 />
-        <Adv advTitle=广告3 />
+        <Adv/>
         </div>
         <!-- 右边占位 -->
         <div  class="flex flex1 mg8"></div>
