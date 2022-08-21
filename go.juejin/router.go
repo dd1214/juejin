@@ -1,7 +1,7 @@
 package main
 
 //服务器监听文件，暂未配置好
-/*
+
 import (
 	"github.com/dd1214/juejin/go.juejin/controller"
 	"github.com/gin-gonic/gin"
@@ -14,11 +14,12 @@ func initRouter(r *gin.Engine) {
 	apiRouter := r.Group("/juejin")
 
 	// basic apis
+	apiRouter.GET("/feed/", controller.Feed)
 	apiRouter.GET("/user/", controller.UserInfo)
 	apiRouter.POST("/user/register/", controller.Register)
 	apiRouter.POST("/user/login/", controller.Login)
-	//apiRouter.POST("/publish/action/", controller.Publish)
-	//apiRouter.GET("/publish/list/", controller.PublishList)
+	apiRouter.POST("/publish/action/", controller.Publish)
+	apiRouter.GET("/publish/list/", controller.PublishList)
 
 	// extra apis - I
 	apiRouter.POST("/favorite/action/", controller.FavoriteAction)
@@ -31,4 +32,3 @@ func initRouter(r *gin.Engine) {
 	apiRouter.GET("/relation/follow/list/", controller.FollowList)
 	apiRouter.GET("/relation/follower/list/", controller.FollowerList)
 }
-*/

@@ -25,13 +25,32 @@
 
           <!-- 完整的导航链接 -->
           <el-menu default-active="1" class="nav-link" mode="horizontal">
-            <el-menu-item index="1">首页</el-menu-item>
-            <el-menu-item index="2">沸点</el-menu-item>
-            <el-menu-item index="3">直播</el-menu-item>
-            <el-menu-item index="4">活动</el-menu-item>
-            <el-menu-item index="5">商城</el-menu-item>
-            <el-menu-item index="6">APP</el-menu-item>
-            <el-menu-item index="7">插件</el-menu-item>
+            <el-menu-item index="1"><el-link>首页</el-link></el-menu-item>
+            <el-menu-item index="2"
+              ><el-link href="https://juejin.cn/pins" target="_blank"
+                >沸点</el-link
+              ></el-menu-item
+            >
+            <el-menu-item index="3"
+              ><el-link href="https://juejin.cn/course" target="_blank"
+                >课程</el-link
+              ></el-menu-item
+            >
+            <el-menu-item index="4"
+              ><el-link href="https://juejin.cn/live" target="_blank"
+                >直播</el-link
+              ></el-menu-item
+            >
+            <el-menu-item index="5"
+              ><el-link href="https://juejin.cn/events/all" target="_blank"
+                >活动</el-link
+              ></el-menu-item
+            >
+            <el-menu-item index="6"
+              ><el-link href="https://element.eleme.io" target="_blank"
+                >商城</el-link
+              ></el-menu-item
+            >
           </el-menu>
         </el-col>
 
@@ -44,7 +63,12 @@
 
           <!-- 创作者中心按钮 -->
           <el-badge :value="1" class="badge" type="danger">
-            <el-dropdown split-button type="primary" size="small" class="originator-drop">
+            <el-dropdown
+              split-button
+              type="primary"
+              size="small"
+              class="originator-drop"
+            >
               创作者中心
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item>
@@ -64,7 +88,11 @@
           <img src="@/assets/logo-vip.svg" />
 
           <!-- 消息图标 -->
-          <el-button type="text" icon="el-icon-bell" class="message-btn"></el-button>
+          <el-button
+            type="text"
+            icon="el-icon-bell"
+            class="message-btn"
+          ></el-button>
 
           <!-- 用户头像 -->
           <div>
@@ -74,21 +102,20 @@
       </el-row>
 
       <!-- 主导航栏下半部分 - 内容区导航部分 -->
-      <LinkPop/>
+      <LinkPop />
     </div>
   </div>
 </template>
 
 <script>
-import LinkPop from "@/components/Linkpop";
+import LinkPop from '@/components/Linkpop'
 
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   components: {
-    LinkPop
+    LinkPop,
   },
-  
-};
+}
 </script>
 
 <style scoped lang="less">
@@ -96,7 +123,7 @@ export default {
 .bg-container {
   width: 100%;
   background-color: #fff;
-  
+
   .nav-container {
     margin: 0 auto;
     width: 100%;
@@ -154,9 +181,8 @@ export default {
             &.is-active {
               color: #1e80ff;
               border-bottom: none;
-              
             }
-            &:hover{
+            &:hover {
               border-bottom: 1px solid #1e80ff !important;
             }
           }

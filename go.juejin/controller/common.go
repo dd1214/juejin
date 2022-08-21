@@ -15,7 +15,7 @@ type Article struct {
 	Id            int64  `json:"id,omitempty"`
 	Author        User   `json:"author"`
 	Url           string `json:"url" json:"url,omitempty"`
-	PublishTime   string `json:"publish_time,omitempty"`
+	PublishTime   int64  `json:"publish_time,omitempty"`
 	FavoriteCount int64  `json:"favorite_count,omitempty"`
 	CommentCount  int64  `json:"comment_count,omitempty"`
 	IsFavorite    bool   `json:"is_favorite,omitempty"`
@@ -68,7 +68,7 @@ type dbFollower struct {
 	token         string `db:"token"`
 }
 
-type dbAticle struct {
+type dbArticle struct {
 	ID            int64  `db:"ID"`
 	AuthorID      string `db:"AuthorID"`
 	Url           string `db:"Url"`
@@ -88,8 +88,8 @@ type dbComment struct {
 }
 
 type dbLike struct {
-	UserID  int64 `db:"UserID"`
-	VideoID int64 `db:"VideoID"`
+	UserID    int64 `db:"UserID"`
+	ArticleID int64 `db:"ArticleID"`
 }
 
 //生成唯一ID

@@ -3,23 +3,20 @@
     <!-- 左边文章区 -->
     <Essays />
     <!-- 右区广告区 -->
-    <div class="ads">
-      <Adv advTitle="广告1" />
-      <Adv advTitle="广告2" />
-      <Adv advTitle="广告3" />
-    </div>
+    <Adv/>
   </div>
 </template>
 
 <script>
 import Essays from './Essays'
 import Adv from './adv.vue'
+
 export default {
   name: 'LowerHalf',
   data() {
     return {}
   },
-  components: { Essays, Adv },
+  components: { Essays, Adv, Adv },
 }
 </script>
 
