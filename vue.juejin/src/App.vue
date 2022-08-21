@@ -1,22 +1,19 @@
 <template>
 <div>
-  <!-- 上半区 -->
-  <Navbar/>
-  <!-- 下半区 -->
-  <LowerHalf/>
+  <router-view/>
 </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
-import LowerHalf from '@/components/LowerHalf.vue'
-
+import Navbar from "./components/Navbar.vue";
 
 export default {
-  name: 'App',
-  components: {
-   Navbar,LowerHalf
-  }
+  name: 'app',
+  data() {
+    return {}
+  },
+  components: { Navbar,},
+
 }
 </script>
 
