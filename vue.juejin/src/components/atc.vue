@@ -247,7 +247,7 @@ export default {
 
 .el-tabs__header.is-right {
   height: auto;
-  width: 18.6875rem;
+  width: 18.4rem;
 }
 
 .el-aside {
