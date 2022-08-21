@@ -3,6 +3,7 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"time"
 )
 
 type ArticleListResponse struct {
@@ -15,8 +16,8 @@ func Publish(c *gin.Context) {
 	ID := c.PostForm("id")
 
 	//生成id并获取投稿时间
-	//newID := makeId()
-	//publishTime := time.Now().Unix()
+	newID := makeId()
+	publishTime := time.Now().Unix()
 	dbInit()
 	defer db.Close()
 	var users []dbUser
@@ -27,12 +28,14 @@ func Publish(c *gin.Context) {
 		return
 	}
 
+	//生成url
+	newUrlID := makeId()
+	Url := "http://localhost/news?" + string(newUrlID)
+
 	//获取文章标题及文章内容
 	title := c.PostForm("title")
-	//text := c.PostForm("text")
-	//此处应为生成网页链接，再将URL存入数据库，尚未解决
-
-	//db.Exec("insert into Article(ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime)value(?, ?, ?, ?, ?, ?, ?, ?)", newID, users[0].ID, Url, 0, 0, 0, title, publishTime)
+	text := c.PostForm("text")
+	db.Exec("insert into Article(ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text)value(?, ?, ?, ?, ?, ?, ?, ?, ?)", newID, users[0].ID, Url, 0, 0, 0, title, publishTime, text)
 	c.JSON(http.StatusOK, Response{
 		StatusCode: 0,
 		StatusMsg:  title + " uploaded successfully",
@@ -72,6 +75,7 @@ func PublishList(c *gin.Context) {
 			FavoriteCount: article.FavoriteCount,
 			CommentCount:  article.CommentCount,
 			IsFavorite:    article.IsFavorite,
+			Text:          article.Text,
 		})
 	}
 	c.JSON(http.StatusOK, ArticleListResponse{

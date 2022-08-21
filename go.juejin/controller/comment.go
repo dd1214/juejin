@@ -27,7 +27,7 @@ func CommentAction(c *gin.Context) {
 	var articles []dbArticle
 	//查询
 	db.Select(&users, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where ID=?", userID)
-	db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime from Article where ID=?", articleID)
+	db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text from Article where ID=?", articleID)
 
 	if users != nil {
 		if actionType == "1" {
