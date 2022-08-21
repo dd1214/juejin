@@ -1,34 +1,37 @@
 <template>
-    <div class="flex flex1" >
-    <!-- 左边占位 -->
-      <div style="flex:0.8;"></div>
-        <!-- 文章栏 -->
-      <div style="flex:4" class="flex column mg8">
-          <!-- 推荐按钮 -->
-           <div class="flex white shadow mgt8">
-            <el-link href="" target="_blank" class="flex mg14 mgl20 font-size14">推荐</el-link>
-            <el-link href="" target="_blank" class="flex mg14 font-size14">最新</el-link>
-            <el-link href="" target="_blank" class="flex mg14 font-size14">热榜</el-link>
-          </div>
-          <!-- 无限滚动文章 -->
-          <Essay EssayTitle=文章1 />
-          <Essay EssayTitle=文章2 />
-          <Essay EssayTitle=文章3 />
-          <Essay EssayTitle=文章4 />
-      </div>
-        <Adv/>
-        
-    </div>
+  <div class="lh-container">
+    <!-- 左边文章区 -->
+    <Essays />
+    <!-- 右区广告区 -->
+    <Adv class="ads"/>
+  </div>
 </template>
 
 <script>
-import Essay from './Essay'
+import Essays from './Essays'
 import Adv from './adv.vue'
+
 export default {
-    name:'LowerHalf',
-    data(){
-        return {}
-    },
-    components:{Essay,Adv}
+  name: 'LowerHalf',
+  data() {
+    return {}
+  },
+  components: { Essays, Adv, Adv },
 }
 </script>
+
+<style scoped lang="less">
+.lh-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: hidden;
+  // .ads {
+  // }
+  @media screen and (max-width: 1000px) {
+    .ads {
+      display: none;
+    }
+  }
+}
+</style>
