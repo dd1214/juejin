@@ -1,13 +1,14 @@
 <template>
   <div class="container">
+    
     <el-main>
       <div class="article-title">标题</div>
       <div class="author-info flex">
         <el-avatar>User</el-avatar>
         <div class="author-info-box">
-          <div class="author-name">仙贝</div>
+          <div class="author-name">用户名</div>
           <div class="meta-box">
-            <time></time><span>·&nbsp;&nbsp;阅读 114514</span>
+            <time>2022年08月22日 1:23</time><span>·&nbsp;&nbsp;阅读 114514</span>
           </div>
         </div>
         <button class="follow-button">+ 关注</button>
@@ -68,136 +69,132 @@
       <br />
       <br />
       <br />
-
     </el-main>
     <!-- 作者信息 -->
-    <div class="author">
-
-    </div>
+    <div class="author"></div>
     <!--  掘金app二维码-->
-    <div class="app-link">
-
-    </div>
+    <a class="app-link">
+      <img src="" />
+    </a>
     <!-- 广告 -->
+
     <el-aside>
-      <div style=" font-size: 18px; font-weight: bold;padding: 16px;">
-        目录
+      <div class="dialog">
+        <div style="font-size: 18px; font-weight: bold; padding: 16px">
+          目录
+        </div>
+        <hr />
+        <el-tabs
+          @tab-click="handleClick"
+          v-model="activeName"
+          :tab-position="tabPosition"
+          style="height: auto"
+        >
+          <el-tab-pane
+            :name="'tab' + index"
+            :class="item.lev"
+            v-for="(item, index) in navList"
+            :key="index"
+            :label="item.name"
+          ></el-tab-pane>
+        </el-tabs>
       </div>
-      <hr />
-      <el-tabs
-        @tab-click="handleClick"
-        v-model="activeName"
-        :tab-position="tabPosition"
-        style="height: auto"
-      >
-        <el-tab-pane
-          :name="'tab' + index"
-          :class="item.lev"
-          v-for="(item, index) in navList"
-          :key="index"
-          :label="item.name"
-        ></el-tab-pane>
-      </el-tabs>
     </el-aside>
   </div>
 </template>
 <script>
-import Adv from './adv.vue';
-
-
 export default {
-    data() {
-        return {
-            activeName: "tab0",
-            tabPosition: "right",
-            scroll: "",
-            navList: [],
-        };
+  data() {
+    return {
+      activeName: "tab0",
+      tabPosition: "right",
+      scroll: "",
+      navList: [],
+    };
+  },
+  methods: {
+    handleClick(tab, event) {
+      this.jump(tab.index);
     },
-    methods: {
-        handleClick(tab, event) {
-            this.jump(tab.index);
-        },
-        dataScroll: function () {
-            this.scroll =
-                document.documentElement.scrollTop || document.body.scrollTop;
-        },
-        jump(index) {
-            let jump = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
-            // 获取需要滚动的距离
-            let total = jump[index].offsetTop - 80;
-            // Chrome
-            document.body.scrollTop = total;
-            // Firefox
-            document.documentElement.scrollTop = total;
-            // Safari
-            window.pageYOffset = total;
-            // $('html, body').animate({
-            // 'scrollTop': total
-            // }, 400);
-        },
-        loadScroll: function () {
-            let self = this;
-            let navs = document.querySelectorAll(".el-tabs__item");
-            // var sections = document.getElementsByClassName('section');
-            for (var i = self.navList.length - 1; i >= 0; i--) {
-                if (self.scroll >= self.navList[i].offsetTop - 120) {
-                    self.activeName = "tab" + i;
-                    break;
-                }
-            }
-        },
-        selectAllTitle() {
-            let title = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
-            this.navList = Array.from(title);
-            this.navList.forEach((item) => {
-                item.name = item.innerHTML;
-            });
-            this.navList.forEach((el) => {
-                let index = el.localName.indexOf("h");
-                el.lev = "lev" + el.localName.substring(index + 1, el.localName.length);
-            });
-        },
+    dataScroll: function () {
+      this.scroll =
+        document.documentElement.scrollTop || document.body.scrollTop;
     },
-    watch: {
-        scroll: function () {
-            this.loadScroll();
-        },
+    jump(index) {
+      let jump = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+      // 获取需要滚动的距离
+      let total = jump[index].offsetTop - 80;
+      // Chrome
+      document.body.scrollTop = total;
+      // Firefox
+      document.documentElement.scrollTop = total;
+      // Safari
+      window.pageYOffset = total;
+      // $('html, body').animate({
+      // 'scrollTop': total
+      // }, 400);
     },
-    created() { },
-    mounted() {
-        // scroll代表滚动条距离页面顶部距离
-        window.addEventListener("scroll", this.dataScroll);
-        this.selectAllTitle();
-        this.$nextTick(() => {
-            setTimeout(() => {
-                let navs = document.querySelectorAll(".el-tabs__item");
-                for (let i = navs.length - 1; i >= 0; i--) {
-                    // console.log($('#'+navs[i].id))
-                    // 从lev1到lev5分别添加不同到样式
-                    document.querySelector("#" + navs[i].id).style.padding = "0";
-                    if (this.navList[i].lev == "lev1") {
-                        document.querySelector("#" + navs[i].id).style.paddingLeft = "20px";
-                    }
-                    else if (this.navList[i].lev == "lev2") {
-                        document.querySelector("#" + navs[i].id).style.paddingLeft = "35px";
-                    }
-                    else if (this.navList[i].lev == "lev3") {
-                        document.querySelector("#" + navs[i].id).style.paddingLeft = "50px";
-                    }
-                    else if (this.navList[i].lev == "lev4") {
-                        document.querySelector("#" + navs[i].id).style.paddingLeft = "65px";
-                        document.querySelector("#" + navs[i].id).style.fontWeight = "400";
-                    }
-                    else if (this.navList[i].lev == "lev5") {
-                        document.querySelector("#" + navs[i].id).style.paddingLeft = "80px";
-                        document.querySelector("#" + navs[i].id).style.fontWeight = "400";
-                    }
-                }
-            });
-        });
+    loadScroll: function () {
+      let self = this;
+      let navs = document.querySelectorAll(".el-tabs__item");
+      // var sections = document.getElementsByClassName('section');
+      for (var i = self.navList.length - 1; i >= 0; i--) {
+        if (self.scroll >= self.navList[i].offsetTop - 120) {
+          self.activeName = "tab" + i;
+          break;
+        }
+      }
     },
-    components: { Adv }
+    selectAllTitle() {
+      let title = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+      this.navList = Array.from(title);
+      this.navList.forEach((item) => {
+        item.name = item.innerHTML;
+      });
+      this.navList.forEach((el) => {
+        let index = el.localName.indexOf("h");
+        el.lev = "lev" + el.localName.substring(index + 1, el.localName.length);
+      });
+    },
+    setDialogTop() {
+      let dialog = document.getElementsByClassName("dialog");
+      let offsetTop = dialog.offsetTop();
+    },
+  },
+  watch: {
+    scroll: function () {
+      this.loadScroll();
+    },
+  },
+  created() {},
+  mounted() {
+    // scroll代表滚动条距离页面顶部距离
+    window.addEventListener("scroll", this.dataScroll);
+    this.selectAllTitle();
+    this.$nextTick(() => {
+      setTimeout(() => {
+        let navs = document.querySelectorAll(".el-tabs__item");
+        for (let i = navs.length - 1; i >= 0; i--) {
+          // console.log($('#'+navs[i].id))
+          // 从lev1到lev5分别添加不同到样式
+          document.querySelector("#" + navs[i].id).style.padding = "0";
+          if (this.navList[i].lev == "lev1") {
+            document.querySelector("#" + navs[i].id).style.paddingLeft = "20px";
+          } else if (this.navList[i].lev == "lev2") {
+            document.querySelector("#" + navs[i].id).style.paddingLeft = "35px";
+          } else if (this.navList[i].lev == "lev3") {
+            document.querySelector("#" + navs[i].id).style.paddingLeft = "50px";
+          } else if (this.navList[i].lev == "lev4") {
+            document.querySelector("#" + navs[i].id).style.paddingLeft = "65px";
+            document.querySelector("#" + navs[i].id).style.fontWeight = "400";
+          } else if (this.navList[i].lev == "lev5") {
+            document.querySelector("#" + navs[i].id).style.paddingLeft = "80px";
+            document.querySelector("#" + navs[i].id).style.fontWeight = "400";
+          }
+        }
+      });
+    });
+  },
 };
 </script>
 <style lang="scss">
@@ -238,9 +235,9 @@ export default {
   width: 52px;
   color: #1e80ff;
 }
-.follow-button:hover{
-    background: rgb(30, 128, 255, 0.15);
-    transition: 300ms;
+.follow-button:hover {
+  background: rgb(30, 128, 255, 0.15);
+  transition: 300ms;
 }
 .el-main {
   width: 60%;
@@ -250,17 +247,15 @@ export default {
 
 .el-tabs__header.is-right {
   height: auto;
-  width: 299px !important;
-
+  width: 18.6875rem;
 }
 
 .el-aside {
-  width:300px !important;
-  right: 200px;
-  margin: 20px;
-  float: right;
+  width: 18.5rem !important;
+  right: 26rem;
+  margin: auto;
   position: fixed;
-  top: 108px;
+  top: 18.75rem;
   height: auto;
   background-color: white;
   border: 20px;
@@ -270,6 +265,4 @@ export default {
   width: 80%;
   padding-top: 20px;
 }
-
-
 </style>
