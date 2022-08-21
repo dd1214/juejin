@@ -6,7 +6,8 @@
       <li @click="activate(2)" :class="{ active: activeIndex == 2 }">最新</li>
       <li @click="activate(3)" :class="{ active: activeIndex == 3 }">热榜</li>
     </ul>
-    <div class="content" ref="essaylist">
+    <!-- 给文章绑定点击事件，跳转至文章详情页 -->
+    <div @click="topage" class="content" ref="essaylist">
       <Essay v-for="(essay, index) in essays" :key="index" :essay="essay"/>
     </div>
   </div>
@@ -367,7 +368,10 @@ export default {
         this.essays = [...this.essays, ...this.newEssays]
       }, 1000)
     },
-
+    topage(){
+      //路径/article对应在router/index.js那定义的path属性值
+      this.$router.push('/article');
+    }
     // getEssays(){
     //   // 发送 ajax 请求获取 essays
     // }
