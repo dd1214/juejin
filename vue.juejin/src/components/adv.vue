@@ -1,24 +1,24 @@
 <template>
-  <div style="flex: 2" class="flex mgr8 mgt8">
+  <div class="flex mgr8">
     <!-- 广告组件 -->
     <div class="flex1">
-      <div class="mgt8 h200w240">
+      <div class="mgt8 ">
         <div class="outsideDiv">
-          <img :src="adv1" class="h200w240" v-show="item1" />
+          <img :src="adv1" class="" v-show="item1" />
           <div class="insideDiv">
             <i class="el-icon-close" v-show="item1" @click="click1"></i>
           </div>
         </div>
 
-        <div class="outsideDiv" :style="css2">
-          <img :src="adv2" class="h200w240" v-show="item2" />
+        <div class="outsideDiv mgt8" >
+          <img :src="adv2" class="" v-show="item2" />
           <div class="insideDiv">
             <i class="el-icon-close" v-show="item2" @click="click2"></i>
           </div>
         </div>
 
-        <div class="outsideDiv" :style="css3">
-          <img :src="adv3" class="h200w240" v-show="item3" />
+        <div class="outsideDiv mgt8" >
+          <img :src="adv3" class="" v-show="item3" />
           <div class="insideDiv">
             <i class="el-icon-close" v-show="item3" @click="click3"></i>
           </div>
@@ -39,12 +39,6 @@ export default {
       item1: true,
       item2: true,
       item3: true,
-      css2: {
-        top: '340px',
-      },
-      css3: {
-        top: '555px',
-      },
     }
   },
   methods: {
@@ -73,11 +67,17 @@ export default {
 </script>
 <style scoped>
 .outsideDiv {
-  position: absolute;
+  position: relative;
 }
 .insideDiv {
   position: absolute;
   right: 0;
   top: 0;
+}
+img{
+    height: 200px;
+}
+i{
+    cursor: pointer;
 }
 </style>

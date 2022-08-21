@@ -392,6 +392,7 @@ export default {
 
 <style scoped lang="less">
 .es-container {
+  margin-right: 15px;
   .nav {
     display: flex;
     justify-content: flex-start;
@@ -422,6 +423,7 @@ export default {
 @media screen and (max-width: 1000px) {
   .es-container {
     width: 100%;
+    margin-right: 0;
   }
 }
 </style>

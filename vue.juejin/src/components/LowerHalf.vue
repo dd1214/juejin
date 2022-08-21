@@ -3,7 +3,7 @@
     <!-- 左边文章区 -->
     <Essays />
     <!-- 右区广告区 -->
-    <Adv/>
+    <Adv class="ads"/>
   </div>
 </template>
 
