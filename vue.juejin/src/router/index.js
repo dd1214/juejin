@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "../App.vue"
-import Details from '../components/details.vue';
+import atc from '../components/atc.vue';
 
 Vue.use(VueRouter)
 
@@ -16,7 +16,7 @@ const router = new VueRouter({
     {
       path:'/details',
       name:'xiangqingye',
-      component: Details,
+      component: atc,
     }
   ]
 
