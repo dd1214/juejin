@@ -13,7 +13,7 @@ type ArticleListResponse struct {
 
 // Publish check token then save upload file to public directory
 func Publish(c *gin.Context) {
-	ID := c.PostForm("id")
+	ID := c.Query("id")
 
 	//生成id并获取投稿时间
 	newID := makeId()
@@ -33,8 +33,8 @@ func Publish(c *gin.Context) {
 	Url := "http://localhost/news?" + string(newUrlID)
 
 	//获取文章标题及文章内容
-	title := c.PostForm("title")
-	text := c.PostForm("text")
+	title := c.Query("title")
+	text := c.Query("text")
 	db.Exec("insert into Article(ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text)value(?, ?, ?, ?, ?, ?, ?, ?, ?)", newID, users[0].ID, Url, 0, 0, 0, title, publishTime, text)
 	c.JSON(http.StatusOK, Response{
 		StatusCode: 0,
