@@ -68,10 +68,10 @@ func PublishList(c *gin.Context) {
 	//填充视频列表
 	for _, article := range articles {
 		articleList = append(articleList, Article{
-			Id:            article.ID,
-			Author:        ResponseUser,
-			Url:           article.Url,
-			PublishTime:   article.PublishTime,
+			Id:     article.ID,
+			Author: ResponseUser,
+			Url:    article.Url,
+			//PublishTime:   article.PublishTime,
 			FavoriteCount: article.FavoriteCount,
 			CommentCount:  article.CommentCount,
 			IsFavorite:    article.IsFavorite,

@@ -12,10 +12,10 @@ type Response struct {
 }
 
 type Article struct {
-	Id            int64  `json:"id,omitempty"`
-	Author        User   `json:"author"`
-	Url           string `json:"url" json:"url,omitempty"`
-	PublishTime   int64  `json:"publish_time,omitempty"`
+	Id     int64  `json:"id,omitempty"`
+	Author User   `json:"author"`
+	Url    string `json:"url" json:"url,omitempty"`
+	//PublishTime   int64  `json:"publish_time,omitempty"`
 	FavoriteCount int64  `json:"favorite_count,omitempty"`
 	CommentCount  int64  `json:"comment_count,omitempty"`
 	IsFavorite    bool   `json:"is_favorite,omitempty"`
