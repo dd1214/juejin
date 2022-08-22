@@ -119,6 +119,7 @@ export default {
     rgb(0 0 0 / 12%) 0px 1px 3px 0px;
 
   &:hover {
+    background-color: #ededed;
     cursor: pointer;
   }
 
