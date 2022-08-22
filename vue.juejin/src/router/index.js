@@ -19,7 +19,6 @@ const router = new VueRouter({
       component: Details,
     }
   ]
-
 })
 
 export default router

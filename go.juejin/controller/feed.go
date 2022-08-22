@@ -22,12 +22,12 @@ func Feed(c *gin.Context) {
 	db.Select(&userLogin, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where token=?", token)
 	var articleList []Article
 	//获取文章列表
-	rows, _ := db.Query("select ID, AuthorID, PlayUrl, CoverUrl, FavoriteCount, CommentCount, IsFavorite, Title from Article where ID>?", 0)
+	rows, _ := db.Query("select ID, AuthorID, PlayUrl, CoverUrl, FavoriteCount, CommentCount, IsFavorite, Title, Text from Article where ID>?", 0)
 	//填充文章列表
 	if rows != nil {
 		for rows.Next() {
 			var article dbArticle
-			rows.Scan(&article.ID, &article.AuthorID, &article.Url, &article.FavoriteCount, &article.CommentCount, &article.IsFavorite, &article.Title, &article.PublishTime)
+			rows.Scan(&article.ID, &article.AuthorID, &article.Url, &article.FavoriteCount, &article.CommentCount, &article.IsFavorite, &article.Title, &article.PublishTime, &article.Text)
 			//获取用户信息
 			var users []dbUser
 			db.Select(&users, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where ID=?", article.AuthorID)

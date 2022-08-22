@@ -17,7 +17,7 @@ func FavoriteAction(c *gin.Context) {
 	db.Select(&user, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where ID=?", userID)
 	//获取投稿信息，若不存在直接返回
 	var articles []dbArticle
-	db.Select(&articles, "select ID, PlayUrl, CoverUrl, FavoriteCount, CommentCount, IsFavorite, Title from Video where ID=?", articleID)
+	db.Select(&articles, "select ID, PlayUrl, CoverUrl, FavoriteCount, CommentCount, IsFavorite, Title, Text from Video where ID=?", articleID)
 	if articles == nil {
 		c.JSON(http.StatusOK, Response{StatusCode: 1, StatusMsg: "Video not exist"})
 		return
@@ -73,7 +73,7 @@ func FavoriteList(c *gin.Context) {
 	for _, article := range likeList {
 		//获取视频列表
 		var articles []dbArticle
-		db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime from Article where ID=?", article.ArticleID)
+		db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text from Article where ID=?", article.ArticleID)
 		if articles == nil {
 			c.JSON(http.StatusOK, ArticleListResponse{
 				Response: Response{
@@ -93,6 +93,7 @@ func FavoriteList(c *gin.Context) {
 			FavoriteCount: articles[0].FavoriteCount,
 			CommentCount:  articles[0].CommentCount,
 			IsFavorite:    articles[0].IsFavorite,
+			Text:          articles[0].Text,
 		})
 	}
 

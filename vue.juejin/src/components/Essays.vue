@@ -351,7 +351,6 @@ export default {
         })
         window.open(newRoute.href, '_blank')
       }
-      // window.open('localhost:8080/src/details', '_blank')
     },
 
     // getEssays(){
