@@ -192,9 +192,11 @@ export default {
             right: -62px;
             min-width: 140px;
             margin: 0 12px;
-
             & > * {
               width: 100%;
+            }
+            &:hover{
+              z-index: 0;
             }
           }
         }

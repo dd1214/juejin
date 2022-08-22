@@ -1,14 +1,8 @@
 <!-- 弹出框，被用在主导航栏的下半部分的弹出显示 -->
-s
 <template>
   <div :class="{ container: true, isFixed: isFixed }" ref="linkpop">
     <ul>
-      <LinkpopItem
-        v-for="item in lists"
-        :key="item.id"
-        :index="item.id"
-        :info="item.info"
-      />
+      <LinkpopItem v-for="item in lists" :key="item.id" :index="item.id" :info="item.info" />
     </ul>
   </div>
 </template>
@@ -119,6 +113,7 @@ export default {
   width: 100%;
   background-color: white;
   padding-left: 100px;
+  padding-top: 0;
   ul {
     display: flex;
     justify-content: flex-start;

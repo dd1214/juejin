@@ -349,8 +349,6 @@ export default {
         let newRoute = this.$router.resolve({
           name: pageName,
         })
-        console.log(newRoute)
-        console.log(window.location.origin)
         window.open(newRoute.href, '_blank')
       }
       // window.open('localhost:8080/src/details', '_blank')
