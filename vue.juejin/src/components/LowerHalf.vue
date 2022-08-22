@@ -3,6 +3,7 @@
     <!-- 左边文章区 -->
     <Essays />
     <!-- 右区广告区 -->
+    
     <Adv class="ads"/>
   </div>
 </template>
@@ -16,7 +17,7 @@ export default {
   data() {
     return {}
   },
-  components: { Essays, Adv, Adv },
+  components: { Essays, Adv },
 }
 </script>
 
