@@ -60,6 +60,7 @@ func Feed(c *gin.Context) {
 					CommentCount:  article.CommentCount,
 					IsFavorite:    article.IsFavorite,
 					Text:          article.Text,
+					Title:         article.Title,
 				},
 			}, articleList...)
 		}

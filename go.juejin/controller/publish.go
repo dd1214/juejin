@@ -76,6 +76,7 @@ func PublishList(c *gin.Context) {
 			CommentCount:  article.CommentCount,
 			IsFavorite:    article.IsFavorite,
 			Text:          article.Text,
+			Title:         article.Title,
 		})
 	}
 	c.JSON(http.StatusOK, ArticleListResponse{

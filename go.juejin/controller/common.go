@@ -20,6 +20,7 @@ type Article struct {
 	CommentCount  int64  `json:"comment_count,omitempty"`
 	IsFavorite    bool   `json:"is_favorite,omitempty"`
 	Text          string `json:"text,omitempty"`
+	Title         string `json:"title,omitempty"`
 }
 
 type Comment struct {

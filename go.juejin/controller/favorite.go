@@ -94,6 +94,7 @@ func FavoriteList(c *gin.Context) {
 			CommentCount:  articles[0].CommentCount,
 			IsFavorite:    articles[0].IsFavorite,
 			Text:          articles[0].Text,
+			Title:         articles[0].Title,
 		})
 	}
 
