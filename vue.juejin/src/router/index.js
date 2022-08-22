@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from "@/App.vue"
+import Home from "@/pages/Home"
 import Details from '@/pages/Details';
 
 Vue.use(VueRouter)
@@ -12,19 +12,12 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: Home,
-      children: [
-        {
-          path: 'details',
-          name: 'xiangqingye',
-          component: Details,
-        }
-      ]
     },
-    // {
-    //   path: '/details',
-    //   name: 'xiangqingye',
-    //   component: Details,
-    // }
+    {
+      path: '/details',
+      name: 'xiangqingye',
+      component: Details,
+    }
   ]
 
 })
