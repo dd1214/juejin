@@ -7,7 +7,12 @@ import (
 
 type FeedResponse struct {
 	Response
-	ArticleList []Article `json:"video_list,omitempty"`
+	ArticleList []Article `json:"article_list,omitempty"`
+}
+
+type JumpResponse struct {
+	Response
+	ArticleResponse Article `json:"article,omitempty"`
 }
 
 // Feed same demo video list for every request
@@ -21,7 +26,7 @@ func Feed(c *gin.Context) {
 	db.Select(&userLogin, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where token=?", token)
 	var articleList []Article
 	//获取文章列表
-	rows, _ := db.Query("select ID, AuthorID, PlayUrl, CoverUrl, FavoriteCount, CommentCount, IsFavorite, Title, Text from Article where ID>?", 0)
+	rows, _ := db.Query("select ID, AuthorID, PlayUrl, CoverUrl, FavoriteCount, CommentCount, IsFavorite, Title, Introduction from Article where ID>?", 0)
 	//填充文章列表
 	if rows != nil {
 		for rows.Next() {
@@ -58,8 +63,9 @@ func Feed(c *gin.Context) {
 					FavoriteCount: article.FavoriteCount,
 					CommentCount:  article.CommentCount,
 					IsFavorite:    article.IsFavorite,
-					Text:          article.Text,
+					Text:          "",
 					Title:         article.Title,
+					Introduction:  article.Introduction,
 				},
 			}, articleList...)
 		}
@@ -69,4 +75,46 @@ func Feed(c *gin.Context) {
 		Response:    Response{StatusCode: 0, StatusMsg: ""},
 		ArticleList: articleList,
 	})
+}
+
+func Jump(c *gin.Context) {
+	articleID := c.Query("id")
+
+	dbInit()
+	defer db.Close()
+	//获取文章信息，若不存在直接返回
+	var articles []dbArticle
+	var article Article
+	db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, Text, Introduction from Article where ID=?", articleID)
+	if articles == nil {
+		c.JSON(http.StatusOK, JumpResponse{
+			Response:        Response{StatusCode: 1, StatusMsg: "article not found"},
+			ArticleResponse: article,
+		})
+	} else {
+		var users []dbUser
+		db.Select(&users, "select ID, Name, FollowCount, FollowerCount, IsFollow from User where ID=?", articles[0].AuthorID)
+		var user = User{
+			Id:            users[0].ID,
+			Name:          users[0].Name,
+			FollowCount:   users[0].FollowCount,
+			FollowerCount: users[0].FollowerCount,
+			IsFollow:      users[0].IsFollow,
+		}
+		article = Article{
+			Id:            articles[0].ID,
+			Author:        user,
+			Url:           articles[0].Url,
+			FavoriteCount: articles[0].FavoriteCount,
+			CommentCount:  articles[0].CommentCount,
+			IsFavorite:    articles[0].IsFavorite,
+			Text:          articles[0].Text,
+			Introduction:  articles[0].Introduction,
+			Title:         articles[0].Title,
+		}
+		c.JSON(http.StatusOK, JumpResponse{
+			Response:        Response{StatusCode: 0, StatusMsg: ""},
+			ArticleResponse: article,
+		})
+	}
 }

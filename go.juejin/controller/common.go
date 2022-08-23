@@ -20,6 +20,7 @@ type Article struct {
 	CommentCount  int64  `json:"comment_count,omitempty"`
 	IsFavorite    bool   `json:"is_favorite,omitempty"`
 	Text          string `json:"text,omitempty"`
+	Introduction  string `json:"introduction,omitempty"`
 	Title         string `json:"title,omitempty"`
 }
 
@@ -80,6 +81,7 @@ type dbArticle struct {
 	Title         string `db:"Title"`
 	PublishTime   int64  `db:"PublishTime"`
 	Text          string `db:"Text"`
+	Introduction  string `db:"Introduction"`
 }
 
 type dbComment struct {
