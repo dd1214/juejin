@@ -78,6 +78,131 @@ body {
     height:200px;
     width: 240px;
  }
+ /* // 登录按钮 */
+ .nav-item login{
+   color: #c53c7c;
+   padding: 0 0 0 .833rem;
+ }
+
+ .login
+ {
+   background-color: rgba(30,128,255,.05);
+   border-color: #0d3966;
+   border: rgba(30,128,255,.3);
+   border-radius: 4px;
+   padding: .3rem 1.5rem;
+   color: #288cef;
+   line-height: 1.9rem;
+   font-size: 16px;
+   font-weight: 400;
+   height: 3rem;
+ }
+
+ /* // 下拉菜单 */
+ .infobox
+ {
+   background-color: #fff;
+   width:260px;
+   height: 420px;
+   border:1px solid #e4e6eb;
+   border-radius: 4px;
+   padding: 20px;
+   position: absolute;
+   z-index: 999;
+   top: -6px;
+   right: 0px;
+ }
+ .avatar 
+ {
+   display:inline-block;
+ }
+
+ 
+ .user-detail
+ {
+   font-size: 16px;
+   display:inline-block;
+   margin-left: 20px;
+   padding: 15px;
+   font-weight: normal;
+   font-family: "宋黑";
+ }
+  .jscore
+ {
+   background-color: #8da7e1;
+ }
+ 
+ .js-level
+ {
+   font-size: 15px;
+   display: inline-block;
+ }
+ .progress
+ {
+   font-size: 15px;
+   margin-left:34px;
+   display: inline-block;
+ }
+
+
+ .progress-path
+ {
+   background-color: #80c5ed;
+ }
+
+ .item{
+   margin:20px;
+   display:inline-block;
+ }
+
+ .item-name
+ {
+   color:rgb(188, 187, 187);
+   transform:translateX(-30%);
+ }
+
+ .bar
+ {
+   width: 218px;
+   height: 5px;
+   background-color: #1f81ff33;
+   position: relative;
+ }
+
+ .current-bar
+ {
+   height: 5px;
+   background-color: #1c60de;
+   border-radius: 4px;
+   position: absolute;
+ }
+
+ .drop-down
+ {
+   display: inline-block;
+ }
+
+ .open-menu
+ {
+   margin:8px;
+ }
+
+ .login-out
+ {
+   margin-top: 10px;
+   display:inline-block;
+   text-decoration: none;   
+   /* // float: right;  */
+ }
+
+ .setup
+ {
+   margin-top: 10px;
+   color:rgb(188, 187, 187);
+   display: inline-block;
+ }
+
+
   /* 当屏幕宽度小于600px时要改变的css */
   @media (max-width: 600px) {
     
