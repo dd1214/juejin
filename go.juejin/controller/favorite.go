@@ -78,7 +78,7 @@ func FavoriteList(c *gin.Context) {
 			c.JSON(http.StatusOK, ArticleListResponse{
 				Response: Response{
 					StatusCode: 0,
-					StatusMsg:  "video not found",
+					StatusMsg:  "article not found",
 				},
 				ArticleList: articleList,
 			})

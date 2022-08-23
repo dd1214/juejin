@@ -43,7 +43,7 @@ var db *sqlx.DB
 //数据库初始化
 func dbInit() {
 	//暂时只有本地数据库，测试用
-	database, err := sqlx.Open("mysql", "root:passwordY@tcp(localhost:3306)/dbname")
+	database, err := sqlx.Open("mysql", "root:passwordY@tcp(localhost:3306)/dbname") //此行需修改本地MySQL密码和数据库名称
 	if err != nil {
 		fmt.Println("open mysql failed,", err)
 		return
@@ -85,7 +85,7 @@ type dbArticle struct {
 type dbComment struct {
 	ID          int64  `db:"ID"`
 	UserID      int64  `db:"UserID"`
-	VideoID     int64  `db:"VideoID"`
+	ArticleID   int64  `db:"ArticleID"`
 	CommentText string `db:"CommentText"`
 	CreateDate  string `db:"CreateDate"`
 }

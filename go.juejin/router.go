@@ -1,7 +1,5 @@
 package main
 
-//服务器监听文件，暂未配置好
-
 import (
 	"github.com/dd1214/juejin/go.juejin/controller"
 	"github.com/gin-gonic/gin"
