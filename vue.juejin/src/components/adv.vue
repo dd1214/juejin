@@ -3,22 +3,22 @@
     <!-- 广告组件 -->
     <div class="flex1">
       <div class="mgt8 ">
-        <div class="outsideDiv">
+        <div class="outsideDiv" >
           <img :src="adv1" class="" v-show="item1" />
           <div class="insideDiv">
             <i class="el-icon-close" v-show="item1" @click="click1"></i>
           </div>
         </div>
-
+        
         <div class="outsideDiv mgt8" >
-          <img :src="adv2" class="" v-show="item2" />
+          <img :src="adv2" class="" v-show="item2" onclick="window.open('https://juejin.cn/pin/7129334097113006116?utm_source=slide&utm_medium=banner&utm_campaign=reading')"/>
           <div class="insideDiv">
             <i class="el-icon-close" v-show="item2" @click="click2"></i>
           </div>
         </div>
 
-        <div class="outsideDiv mgt8" >
-          <img :src="adv3" class="" v-show="item3" />
+        <div class="outsideDiv mgt8">
+          <img :src="adv3" class="" v-show="item3"  onclick="window.open('https://juejin.cn/book/7126538479051210766?utm_source=web_banner&utm_medium=banner&utm_campaign=Book_SK_0817')"/>
           <div class="insideDiv">
             <i class="el-icon-close" v-show="item3" @click="click3"></i>
           </div>
