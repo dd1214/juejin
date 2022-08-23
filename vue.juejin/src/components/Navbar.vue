@@ -194,9 +194,10 @@
                   </div>
                 </li>
               </ul>
-              <div class="operation menu">
-                <div class="setup">我的设置</div>
-                  <a href="loginout" class="login-out" style="color:rgb(188, 187, 187);">退出登录</a>
+              <div style="display:flex">
+                <el-link :underline="false">我的设置</el-link>
+                <div class="hide"> </div>
+                <el-link :underline="false">退出登录</el-link>
               </div>
             </div>
               
