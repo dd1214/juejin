@@ -52,13 +52,15 @@ func Feed(c *gin.Context) {
 			}
 			articleList = append([]Article{
 				{
-					Id:            article.ID,
-					Author:        user,
-					Url:           article.Url,
-					PublishTime:   article.PublishTime,
+					Id:     article.ID,
+					Author: user,
+					Url:    article.Url,
+					//PublishTime:   article.PublishTime,
 					FavoriteCount: article.FavoriteCount,
 					CommentCount:  article.CommentCount,
 					IsFavorite:    article.IsFavorite,
+					Text:          article.Text,
+					Title:         article.Title,
 				},
 			}, articleList...)
 		}

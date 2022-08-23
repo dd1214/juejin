@@ -69,12 +69,12 @@ func CommentAction(c *gin.Context) {
 
 // CommentList all videos have same demo comment list
 func CommentList(c *gin.Context) {
-	videoID := c.Query("video_id")
+	articleID := c.Query("article_id")
 	dbInit()
 	defer db.Close()
 	//从数据库查询该视频的评论列表
 	var dbComments []dbComment
-	db.Select(&dbComments, "select ID, UserID, CommentText, CreateDate from Comment where VideoID=?", videoID)
+	db.Select(&dbComments, "select ID, UserID, CommentText, CreateDate from Comment where AticleID=?", articleID)
 	var comments []Comment
 	//填充返回的评论列表
 	for _, comment := range dbComments {

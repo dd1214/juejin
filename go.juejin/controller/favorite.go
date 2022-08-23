@@ -86,14 +86,15 @@ func FavoriteList(c *gin.Context) {
 		}
 		//填充响应视频列表
 		articleList = append(articleList, Article{
-			Id:            articles[0].ID,
-			Author:        user,
-			Url:           articles[0].Url,
-			PublishTime:   articles[0].PublishTime,
+			Id:     articles[0].ID,
+			Author: user,
+			Url:    articles[0].Url,
+			//PublishTime:   articles[0].PublishTime,
 			FavoriteCount: articles[0].FavoriteCount,
 			CommentCount:  articles[0].CommentCount,
 			IsFavorite:    articles[0].IsFavorite,
 			Text:          articles[0].Text,
+			Title:         articles[0].Title,
 		})
 	}
 
