@@ -73,15 +73,31 @@ export default {
 }
 </script>
 <style scoped>
-  .login-section{
-    position:absolute; /*绝对定位*/
-    top:50%; /*距顶部50%*/
-    left:50%;
-    margin:-100px 0 0 -150px; /*设定这个div的margin-top的负值为自身的高度的一半,margin-left的值也是自身的宽度的一半的负值.(感觉在绕口令)*/
-    width:300px; /*宽为400,那么margin-top为-200px*/
-    height:200px; /*高为200那么margin-left为-100px;*/
-     z-index:99; /*浮动在最上层 */
-    }
-    
-
+.login-section {
+  /* 用来 mask */
+  position: fixed; /*固定定位*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(120, 0%, 30%, 0.3);
+  z-index: 98;  
+}
+.el-form{
+  position: fixed; /*固定定位*/
+  top: 50%; /*距顶部50%*/
+  left: 50%;
+  /* margin: -100px 0 0 -150px; 设定这个div的margin-top的负值为自身的高度的一半,margin-left的值也是自身的宽度的一半的负值.(感觉在绕口令) */
+  transform: translateX(-50%) translateY(-50%); /* 用平移实现居中更好，自适应 */
+  width: 300px; /*宽为400,那么margin-top为-200px*/
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f3f5f6;
+  z-index: 99; /*浮动在最上层 */
+}
+.login-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

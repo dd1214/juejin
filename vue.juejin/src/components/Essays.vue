@@ -34,6 +34,7 @@ export default {
           if (!this.busy && entries[0].intersectionRatio > 0.75) {
             this.busy = true
             const p = new Promise((resolve, reject) => {
+              // 加载更多文章
               this.loadMore()
               resolve()
             })
@@ -370,7 +371,7 @@ export default {
     }
   },
   beforeDestroy() {
-    this.observer.unobserve(this.$refs.essaylist.lastElementChild)
+    this.observer.disconnect()
   },
 }
 </script>
