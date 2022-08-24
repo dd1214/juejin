@@ -62,129 +62,127 @@
           <!-- 用户menu -->
           <div>
             <!-- 登录后 -->
-
-             <el-popover
-              placement="bottom"
-              trigger="click">
-              
+            <el-popover placement="bottom" trigger="click" v-if="isLogin">
               <!-- 信息框 -->
-            <div class="infobox">
-              <div class="user-card" >
-                <div class="user-info">
-                  <div class="avatar">
-                    <img src="@/assets/info/head protrait.jpg" alt="" class="lazy avatar" width="40px">
-                  </div>
-                  <div class="user-detail">
-                    <p class="name">user-name</p>
-                    <div class="ore">
-                      矿石:
-                      <span>2.8w</span>
-                      <img src="@/assets/info/unfold.jpg" alt=""  class="path">
+              <div class="infobox">
+                <div class="user-card">
+                  <div class="user-info">
+                    <div class="avatar">
+                      <img src="@/assets/info/head protrait.jpg" alt="" class="lazy avatar" width="40px" />
+                    </div>
+                    <div class="user-detail">
+                      <p class="name">user-name</p>
+                      <div class="ore">
+                        矿石:
+                        <span>2.8w</span>
+                        <img src="@/assets/info/unfold.jpg" alt="" class="path" />
+                      </div>
                     </div>
                   </div>
+                  <a href="" class="progress-list">
+                    <div class="jscore" style="background-color: #fff">
+                      <div class="js-level">
+                        掘友等级
+                        <span>JY.4</span>
+                      </div>
+                      <div class="progress">
+                        <span>
+                          308.4/500
+                          <img src="@/assets/info/unfold.jpg" alt="" class="progress-path" />
+                        </span>
+                      </div>
+                      <div class="bar">
+                        <div class="current-bar" style="width: 128px"></div>
+                      </div>
+                    </div>
+                  </a>
+                  <ul class="status-bar">
+                    <li class="item">
+                      <div class="item-count">2</div>
+                      <div class="item-name">关注</div>
+                    </li>
+                    <li class="item">
+                      <div class="item-count">27</div>
+                      <div class="item-name">赞过</div>
+                    </li>
+                    <li class="item">
+                      <div class="item-count">1</div>
+                      <div class="item-name">收藏</div>
+                    </li>
+                  </ul>
                 </div>
-                <a href="" class="progress-list">
-                  <div class="jscore" style="background-color:#fff">
-                    <div class="js-level">
-                      掘友等级
-                      <span>JY.4</span>
+                <ul class="drop-down list box">
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/homepage.jpg" alt="" ip="image" />
+                      <span @click.native="jumpTOPersonalPage(gerenzhuye)">我的主页</span>
                     </div>
-                    <div class="progress">
-                      <span>
-                        308.4/500
-                        <img src="@/assets/info/unfold.jpg" alt="" class="progress-path">
-                      </span>
-                    </div>
-                    <div class="bar">
-                      <div class="current-bar" style="width:128px;"></div>
-                    </div>
-                  </div>
-                </a>
-                <ul class="status-bar">
-                  <li class="item">
-                    <div class="item-count">2</div>
-                    <div class="item-name">关注</div>
                   </li>
-                  <li class="item">
-                    <div class="item-count">27</div>
-                    <div class="item-name">赞过</div>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/welfare.jpg" alt="" ip="image" />
+                      <span>成长福利</span>
+                    </div>
                   </li>
-                  <li class="item">
-                    <div class="item-count">1</div>
-                    <div class="item-name">收藏</div>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/member.jpg" alt="" ip="image" />
+                      <span>会员中心</span>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/course.jpg" alt="" ip="image" />
+                      <span>我的课程</span>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/discounts.jpg" alt="" ip="image" />
+                      <span>我的优惠</span>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/apply.jpg" alt="" ip="image" />
+                      <span>我的报名</span>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/footprint.jpg" alt="" ip="image" />
+                      <span>我的足迹</span>
+                    </div>
                   </li>
                 </ul>
+                <div class="operation menu">
+                  <div class="setup">我的设置</div>
+                  <a href="loginout" class="login-out" style="color: rgb(188, 187, 187)">退出登录</a>
+                </div>
               </div>
-              <ul class="drop-down list box">
-                <li class="drop-down" >
-                  <div class="open-menu">
-                    <img src="@/assets/info/homepage.jpg" alt="" ip="image">
-                    <span @click.native="jumpTOPersonalPage(gerenzhuye)">我的主页</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/welfare.jpg" alt="" ip="image">
-                    <span>成长福利</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/member.jpg" alt="" ip="image">
-                    <span>会员中心</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/course.jpg" alt="" ip="image">
-                    <span>我的课程</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/discounts.jpg" alt="" ip="image">
-                    <span>我的优惠</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/apply.jpg" alt="" ip="image">
-                    <span>我的报名</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/footprint.jpg" alt="" ip="image">
-                    <span>我的足迹</span>
-                  </div>
-                </li>
-              </ul>
-              <div class="operation menu">
-                <div class="setup">我的设置</div>
-                  <a href="loginout" class="login-out" style="color:rgb(188, 187, 187);">退出登录</a>
-              </div>
-            </div>
-              
-              <div class="avatar-div"  style="width:40px; height:40px" slot="reference">
-                <img src="@/assets/info/head protrait.jpg" style="width: 100%; height: 100%;" >
-            </div>   
-            </el-popover>
 
-            
-              
+              <div class="avatar-div" style="width: 40px; height: 40px" slot="reference">
+                <img src="@/assets/info/head protrait.jpg" style="width: 100%; height: 100%" />
+              </div>
+            </el-popover>
+            <!-- 登录前 -->
+            <el-button @click="openLoginDialog" v-if="!isLogin">登录</el-button>
           </div>
         </el-col>
-      </el-row>      
+      </el-row>
     </div>
   </div>
 </template>
 
 <script>
-
+import { mapState, mapMutations } from 'vuex';
 export default {
   name: 'Navbar',
-  components: {
-    LinkPop,
+  computed: {
+    ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow', 'userInfo'])
+  },
+  methods: {
+    ...mapMutations('loginOptions', {openLoginDialog: 'OPEN_LOGIN_DIALOG'})
   },
 }
 </script>
