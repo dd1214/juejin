@@ -2,7 +2,7 @@
   <div>
     <Navbar/>
     <HomepageCenter/>
-    <HomepageRight/>
+    <HomepageRight/> 
     <PersonalEssays/>
   </div>
 </template>

@@ -65,10 +65,11 @@
             <el-popover
               placement="bottom"
               trigger="click"
-              v-if="isLogin">
+              v-if="isLogin"
+              >
               
               <!-- 信息框 -->
-            <div class="infobox">
+            <div class="infobox" >
               <div class="user-card" >
                 <div class="user-info">
                   <div class="avatar">
@@ -166,8 +167,8 @@
               </div>
             </div>
               
-              <div class="avatar-div"  style="width:40px; height:40px" slot="reference">
-                <img src="@/assets/info/head protrait.jpg" style="width: 100%; height: 100%;" >
+              <div class="avatar-div"  style="width:40px; height:40px" slot="reference" >
+                <img src="@/assets/info/head protrait.jpg" style="width: 100%; height: 100%;cursor:pointer" >
             </div>   
             </el-popover>
             <!-- 登录前 -->
@@ -187,8 +188,8 @@ export default {
     ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow', 'userInfo'])
   },
   methods: {
-    ...mapMutations('loginOptions', {openLoginDialog: 'OPEN_LOGIN_DIALOG'})
-  },
+    ...mapMutations('loginOptions', {openLoginDialog: 'OPEN_LOGIN_DIALOG'}),
+  
     jumpTOPersonalPage(pageName){
       // 路由跳转之前校验是否重复跳转到当前路由，是的话则不跳转
         if (this.$route.name != pageName) {
@@ -197,7 +198,8 @@ export default {
         })
         window.open(newRoute.href, '_blank')
       }
-    },
+    }
+    }
   }
 
 </script>

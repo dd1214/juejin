@@ -2,8 +2,8 @@
 <div class="all">
     <!--  个人成就 -->
     <div class="achievement">
-        <h1>个人成就</h1>
-        <hr>
+        <p class="achive">个人成就</p>
+        <hr class="margin">
         <ul>
             <li>
                 <img src="../assets/info/like.jpg" alt="" class="ico">
@@ -11,7 +11,7 @@
             </li>
             <br>
             <li>
-                <img src="../assets/info/read.jpg" alt="" c lass="ico">
+                <img src="../assets/info/read.jpg" alt="" class="ico">
                 <p class="word">文章被阅读 217</p>
             </li>
             <br>
@@ -65,16 +65,18 @@ export default {
         }
         .all
         {
-            width: 300px;
-            height: 700px;
             position: absolute;
-            top: 100px;
-            right: 100px;
+            top:80px;
+            left:930px;
+        }
+        .achive{
+            font-size: 20px;
+            margin-left: 10px;
         }
         .achievement
         {
-            width: 300px;
-            height: 250px;
+            width: 200px;
+            height: 230px;
             background-color: #fff;
             border-width: 2px;
             border-color: rgb(112, 107, 107);
@@ -82,28 +84,42 @@ export default {
         .state
         {
             width: 300px;
-            height: 100px;
+            height: 60px;
         }
         li{
             list-style-type: none;
             display: inline-block;
             float: left;
         }
+        
+        .ico
+        {
+            margin-top: 20px;
+            margin-left: 10px;
+            width: 40px;
+        }
         .word
         {
+            font-size: 13px;
             display: inline-block;
+            font-weight: lighter;
             float: right;
-            margin-left: 50px;
+            margin-left: 35px;
+            margin-top: 33px;
         }
 
         .center
         {
-            margin-top: 20px;
+            height: 50px;
+            margin-top: 10px;
+            width: 200px;
             text-align: center;
             background-color: #fff;
         }
         .state-p
         {
+            font-size: 15px;
+            font-weight: lighter;
             margin-right:30px;
             display: inline-block;
         }
@@ -112,10 +128,16 @@ export default {
             margin-left: 20px;
             margin-right: 50px;
         }
-        #info-btn
+        .per-info
         {
+            width: 200px;
+        }
+        #info-btn {
+            margin-top: 10px;
+            margin-bottom: 10px;
             display: inline-block;
-            font-size: 18px;
+            font-size: 15px;
+            font-weight: lighter;
         }
         .info-data
         {
@@ -124,6 +146,8 @@ export default {
 
         .margin
         {
-            margin-top: 20px;
+            width: 200px;
+            margin-top: 10px;
+            /* margin-bottom: 10px; */
         }
 </style>
