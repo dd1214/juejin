@@ -154,7 +154,7 @@
                 <li class="drop-down" >
                   <div class="open-menu">
                     <img src="@/assets/info/homepage.jpg" alt="" ip="image">
-                    <span @click.native="jumpTOPersonalPage(gerenzhuye)">我的主页</span>
+                    <span @click="jumpTOPersonalPage(gerenzhuye)">我的主页</span>
                   </div>
                 </li>
                 <li class="drop-down">
