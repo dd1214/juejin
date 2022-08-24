@@ -1,6 +1,6 @@
 <!-- 弹出框，被用在主导航栏的下半部分的弹出显示 -->
 <template>
-  <div :class="{ container: true, isFixed: isFixed }" ref="linkpop">
+  <div :class="{ 'lk-container': true, isFixed: isFixed }" ref="linkpop">
     <ul>
       <LinkpopItem v-for="item in lists" :key="item.id" :index="item.id" :info="item.info" />
     </ul>
@@ -106,7 +106,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-.container {
+.lk-container {
   display: flex;
   justify-content: flex-start;
   border-top: 1px solid #e6e6e6;
@@ -132,24 +132,29 @@ export default {
     }
   }
 }
+
 @media screen and (max-width: 960px) {
-  .container {
+  .lk-container {
     padding-left: 0 !important;
   }
 }
+
 @media screen and (max-width: 1100px) {
-  .container {
+  .lk-container {
     padding-left: 20px;
   }
 }
+
 @media screen and (max-width: 1200px) {
-  .container {
+  .lk-container {
     padding-left: 50px;
   }
 }
+
 .isFixed {
   position: fixed;
   top: 0;
   z-index: 9999;
 }
+
 </style>

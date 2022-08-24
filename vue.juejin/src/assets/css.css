@@ -187,12 +187,9 @@ body {
    margin:8px;
  }
 
- .login-out
+ .hide
  {
-   margin-top: 10px;
-   display:inline-block;
-   text-decoration: none;   
-   /* // float: right;  */
+  width:100px;
  }
 
  .setup
