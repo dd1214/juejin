@@ -152,45 +152,45 @@
               </div>
               <ul class="drop-down list box">
                 <li class="drop-down" >
-                  <div class="open-menu">
-                    <img src="@/assets/info/homepage.jpg" alt="" ip="image">
-                    <span @click.native="jumpTOPersonalPage(gerenzhuye)">我的主页</span>
+                  <div class="open-menu" >
+                    <img src="@/assets/info/homepage.jpg" alt="" ip="image" >
+                    <el-link :underline="false" @click="jumpTOPersonalPage('gerenzhuye')">我的主页</el-link>
                   </div>
                 </li>
                 <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/welfare.jpg" alt="" ip="image">
-                    <span>成长福利</span>
+                  <div class="open-menu" style="width:100px">
+                      <img src="@/assets/info/welfare.jpg" alt="" ip="image" >
+                      <el-link :underline="false">成长福利</el-link>
                   </div>
                 </li>
                 <li class="drop-down">
                   <div class="open-menu">
                     <img src="@/assets/info/member.jpg" alt="" ip="image">
-                    <span>会员中心</span>
+                    <el-link :underline="false">会员中心</el-link>
                   </div>
                 </li>
                 <li class="drop-down">
                   <div class="open-menu">
                     <img src="@/assets/info/course.jpg" alt="" ip="image">
-                    <span>我的课程</span>
+                    <el-link :underline="false">我的课程</el-link>
                   </div>
                 </li>
                 <li class="drop-down">
                   <div class="open-menu">
                     <img src="@/assets/info/discounts.jpg" alt="" ip="image">
-                    <span>我的优惠</span>
+                    <el-link :underline="false">我的优惠</el-link>
                   </div>
                 </li>
                 <li class="drop-down">
                   <div class="open-menu">
                     <img src="@/assets/info/apply.jpg" alt="" ip="image">
-                    <span>我的报名</span>
+                    <el-link :underline="false">我的报名</el-link>
                   </div>
                 </li>
                 <li class="drop-down">
                   <div class="open-menu">
                     <img src="@/assets/info/footprint.jpg" alt="" ip="image">
-                    <span>我的足迹</span>
+                    <el-link :underline="false">我的足迹</el-link>
                   </div>
                 </li>
               </ul>
@@ -225,6 +225,17 @@ export default {
   components: {
     LinkPop,
   },
+  methods:{
+    jumpTOPersonalPage(pageName){
+      // 路由跳转之前校验是否重复跳转到当前路由，是的话则不跳转
+        if (this.$route.name != pageName) {
+        let newRoute = this.$router.resolve({
+          name: pageName,
+        })
+        window.open(newRoute.href, '_blank')
+      }
+    },
+  }
 }
 </script>
 

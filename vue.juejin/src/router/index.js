@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "@/pages/Home"
 import Details from '@/pages/Details';
+import PersionalPage from '@/pages/PersionalPage';
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,11 @@ const router = new VueRouter({
       path: '/details',
       name: 'xiangqingye',
       component: Details,
+    },
+    {
+      path: '/PersionalPage',
+      name: 'gerenzhuye',
+      component: PersionalPage,
     }
   ]
 })
