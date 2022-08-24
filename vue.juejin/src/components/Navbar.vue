@@ -26,31 +26,11 @@
           <!-- 完整的导航链接 -->
           <el-menu default-active="1" class="nav-link" mode="horizontal">
             <el-menu-item index="1"><el-link>首页</el-link></el-menu-item>
-            <el-menu-item index="2"
-              ><el-link href="https://juejin.cn/pins" target="_blank"
-                >沸点</el-link
-              ></el-menu-item
-            >
-            <el-menu-item index="3"
-              ><el-link href="https://juejin.cn/course" target="_blank"
-                >课程</el-link
-              ></el-menu-item
-            >
-            <el-menu-item index="4"
-              ><el-link href="https://juejin.cn/live" target="_blank"
-                >直播</el-link
-              ></el-menu-item
-            >
-            <el-menu-item index="5"
-              ><el-link href="https://juejin.cn/events/all" target="_blank"
-                >活动</el-link
-              ></el-menu-item
-            >
-            <el-menu-item index="6"
-              ><el-link href="https://element.eleme.io" target="_blank"
-                >商城</el-link
-              ></el-menu-item
-            >
+            <el-menu-item index="2"><el-link href="https://juejin.cn/pins" target="_blank">沸点</el-link></el-menu-item>
+            <el-menu-item index="3"><el-link href="https://juejin.cn/course" target="_blank">课程</el-link></el-menu-item>
+            <el-menu-item index="4"><el-link href="https://juejin.cn/live" target="_blank">直播</el-link></el-menu-item>
+            <el-menu-item index="5"><el-link href="https://juejin.cn/events/all" target="_blank">活动</el-link></el-menu-item>
+            <el-menu-item index="6"><el-link href="https://element.eleme.io" target="_blank">商城</el-link></el-menu-item>
           </el-menu>
         </el-col>
 
@@ -63,23 +43,12 @@
 
           <!-- 创作者中心按钮 -->
           <el-badge :value="1" class="badge" type="danger">
-            <el-dropdown
-              split-button
-              type="primary"
-              size="small"
-              class="originator-drop"
-            >
+            <el-dropdown split-button type="primary" size="small" class="originator-drop">
               创作者中心
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>
-                  <img src="@/assets/write-article.svg" /> 写文章
-                </el-dropdown-item>
-                <el-dropdown-item>
-                  <img src="@/assets/boiling.svg" /> 发沸点
-                </el-dropdown-item>
-                <el-dropdown-item>
-                  <img src="@/assets/coding.svg" /> 写代码
-                </el-dropdown-item>
+                <el-dropdown-item> <img src="@/assets/write-article.svg" /> 写文章 </el-dropdown-item>
+                <el-dropdown-item> <img src="@/assets/boiling.svg" /> 发沸点 </el-dropdown-item>
+                <el-dropdown-item> <img src="@/assets/coding.svg" /> 写代码 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </el-badge>
@@ -88,142 +57,22 @@
           <img src="@/assets/logo-vip.svg" />
 
           <!-- 消息图标 -->
-          <el-button
-            type="text"
-            icon="el-icon-bell"
-            class="message-btn"
-          ></el-button>
+          <el-button type="text" icon="el-icon-bell" class="message-btn"></el-button>
 
           <!-- 用户menu -->
           <div>
-            <!-- 登录后 -->
-
-             <el-popover
-              placement="bottom"
-              trigger="click">
-              
-              <!-- 信息框 -->
-            <div class="infobox">
-              <div class="user-card" >
-                <div class="user-info">
-                  <div class="avatar">
-                    <img src="@/assets/info/head protrait.jpg" alt="" class="lazy avatar" width="40px">
-                  </div>
-                  <div class="user-detail">
-                    <p class="name">user-name</p>
-                    <div class="ore">
-                      矿石:
-                      <span>2.8w</span>
-                      <img src="@/assets/info/unfold.jpg" alt=""  class="path">
-                    </div>
-                  </div>
-                </div>
-                <a href="" class="progress-list">
-                  <div class="jscore" style="background-color:#fff">
-                    <div class="js-level">
-                      掘友等级
-                      <span>JY.4</span>
-                    </div>
-                    <div class="progress">
-                      <span>
-                        308.4/500
-                        <img src="@/assets/info/unfold.jpg" alt="" class="progress-path">
-                      </span>
-                    </div>
-                    <div class="bar">
-                      <div class="current-bar" style="width:128px;"></div>
-                    </div>
-                  </div>
-                </a>
-                <ul class="status-bar">
-                  <li class="item">
-                    <div class="item-count">2</div>
-                    <div class="item-name">关注</div>
-                  </li>
-                  <li class="item">
-                    <div class="item-count">27</div>
-                    <div class="item-name">赞过</div>
-                  </li>
-                  <li class="item">
-                    <div class="item-count">1</div>
-                    <div class="item-name">收藏</div>
-                  </li>
-                </ul>
-              </div>
-              <ul class="drop-down list box">
-                <li class="drop-down" >
-                  <div class="open-menu">
-                    <img src="@/assets/info/homepage.jpg" alt="" ip="image">
-                    <span @click.native="jumpTOPersonalPage(gerenzhuye)">我的主页</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/welfare.jpg" alt="" ip="image">
-                    <span>成长福利</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/member.jpg" alt="" ip="image">
-                    <span>会员中心</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/course.jpg" alt="" ip="image">
-                    <span>我的课程</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/discounts.jpg" alt="" ip="image">
-                    <span>我的优惠</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/apply.jpg" alt="" ip="image">
-                    <span>我的报名</span>
-                  </div>
-                </li>
-                <li class="drop-down">
-                  <div class="open-menu">
-                    <img src="@/assets/info/footprint.jpg" alt="" ip="image">
-                    <span>我的足迹</span>
-                  </div>
-                </li>
-              </ul>
-              <div class="operation menu">
-                <div class="setup">我的设置</div>
-                  <a href="loginout" class="login-out" style="color:rgb(188, 187, 187);">退出登录</a>
-              </div>
-            </div>
-              
-              <div class="avatar-div"  style="width:40px; height:40px" slot="reference">
-                <img src="@/assets/info/head protrait.jpg" style="width: 100%; height: 100%;" >
-            </div>   
-            </el-popover>
-
-            
-              
+            <el-avatar>user</el-avatar>
           </div>
-        
         </el-col>
-      </el-row>
-
+      </el-row>      
     </div>
   </div>
 </template>
 
 <script>
-import LinkPop from '@/components/Linkpop'
 
 export default {
   name: 'Navbar',
-  components: {
-    LinkPop,
-  },
 }
 </script>
 
@@ -362,9 +211,6 @@ export default {
         }
 
         // border: 1px solid skyblue;
-
-        
-
       }
     }
   }

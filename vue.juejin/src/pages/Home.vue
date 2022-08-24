@@ -4,8 +4,8 @@
   <Navbar/>
   <LinkPop/>
   <!-- 注册登陆 -->
-  <!-- <Land/>
-  <Register/> -->
+  <Land v-if="isLoginDialogShow"/>
+  <!-- <Register/> -->
   <!-- 下半区 -->
   <LowerHalf/>
   
@@ -20,11 +20,15 @@ import LinkPop from '@/components/Linkpop.vue'
 import Land from '@/components/Land.vue'
 import Register from '@/components/Register.vue'
 
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
-   Navbar,LowerHalf,LinkPop,Land,Register
+    Navbar,LowerHalf,LinkPop,Land,Register
+  },
+  computed:{
+    ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow'])
   }
 }
 </script>
