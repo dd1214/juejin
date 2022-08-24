@@ -66,6 +66,9 @@ export default {
 }
 </script>
 <style scoped>
+.flex1{
+  padding: 7px;
+}
 .outsideDiv {
   position: relative;
 }

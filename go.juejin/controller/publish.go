@@ -35,7 +35,8 @@ func Publish(c *gin.Context) {
 	//获取文章标题及文章内容
 	title := c.Query("title")
 	text := c.Query("text")
-	db.Exec("insert into Article(ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text)value(?, ?, ?, ?, ?, ?, ?, ?, ?)", newID, users[0].ID, Url, 0, 0, 0, title, publishTime, text)
+	introduction := text[:Min(15, int64(len(text)))]
+	db.Exec("insert into Article(ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text, Introduction)value(?, ?, ?, ?, ?, ?, ?, ?, ?)", newID, users[0].ID, Url, 0, 0, 0, title, publishTime, text, introduction)
 	c.JSON(http.StatusOK, Response{
 		StatusCode: 0,
 		StatusMsg:  title + " uploaded successfully",
@@ -64,7 +65,7 @@ func PublishList(c *gin.Context) {
 	}
 	//获取视频列表
 	var articles []dbArticle
-	db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime from Article where AuthorID=?", user[0].ID)
+	db.Select(&articles, "select ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Introduction from Article where AuthorID=?", user[0].ID)
 	//填充视频列表
 	for _, article := range articles {
 		articleList = append(articleList, Article{
@@ -75,8 +76,9 @@ func PublishList(c *gin.Context) {
 			FavoriteCount: article.FavoriteCount,
 			CommentCount:  article.CommentCount,
 			IsFavorite:    article.IsFavorite,
-			Text:          article.Text,
+			Text:          "",
 			Title:         article.Title,
+			Introduction:  article.Introduction,
 		})
 	}
 	c.JSON(http.StatusOK, ArticleListResponse{
@@ -86,4 +88,12 @@ func PublishList(c *gin.Context) {
 		},
 		ArticleList: articleList,
 	})
+}
+
+//go居然没有内置的min函数
+func Min(x, y int64) int64 {
+	if x < y {
+		return x
+	}
+	return y
 }

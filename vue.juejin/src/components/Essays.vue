@@ -34,6 +34,7 @@ export default {
           if (!this.busy && entries[0].intersectionRatio > 0.75) {
             this.busy = true
             const p = new Promise((resolve, reject) => {
+              // 加载更多文章
               this.loadMore()
               resolve()
             })
@@ -370,14 +371,14 @@ export default {
     }
   },
   beforeDestroy() {
-    this.observer.unobserve(this.$refs.essaylist.lastElementChild)
+    this.observer.disconnect()
   },
 }
 </script>
 
 <style scoped lang="less">
 .es-container {
-  margin-right: 15px;
+  margin: 15px 15px 0 0;
   .nav {
     display: flex;
     justify-content: flex-start;
