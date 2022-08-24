@@ -13,36 +13,8 @@
         </div>
         <button class="follow-button">+ 关注</button>
       </div>
+      <div style="padding-top:10px">
       <h1 id="-">一级目录</h1>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1 id="-">一级目录</h1>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1 id="-">一级目录</h1>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <br />
       <br />
       <br />
@@ -160,11 +132,30 @@
       <br />
       <br />
       <br />
-      <h1 id="-">一级目录</h1>
       <br />
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      </div>
+      <!-- <div class="comment-box">评论
+        <div class="comment">
+
+        </div>
+      </div> -->
     </div>
 
     <div class="aside">
@@ -172,34 +163,40 @@
       <div class="author"></div>
       <!--  掘金app二维码-->
       <div class="app-link">
-        <img src="../assets/QRCode.jpg" style="max-width: 20%" />
+        <img src="../assets/QRCode.jpg" style="max-width: 21%" />
         <div class="app-card">
           <div class="app-card-download">下载稀土掘金APP</div>
           <div class="app-card-text">一个帮助开发者成长的社区</div>
         </div>
       </div>
       <!-- 广告 -->
-
-      <div class="catalog">
-        <div style="font-size: 18px; font-weight: bold; padding: 16px">
+      <!-- 目录 -->
+      <div class="catalog-box">
+        <div
+          class="mulu"
+          style="font-size: 18px; font-weight: bold; padding: 16px"
+        >
           目录
         </div>
         <hr style="opacity: 25%" />
-        <el-tabs
-          @tab-click="handleClick"
-          v-model="activeName"
-          :tab-position="tabPosition"
-          style="height: auto"
-        >
-          <el-tab-pane
-            :name="'tab' + index"
-            :class="item.lev"
-            v-for="(item, index) in navList"
-            :key="index"
-            :label="item.name"
-          ></el-tab-pane>
-        </el-tabs>
+        <div class="catalog">
+          <el-tabs
+            @tab-click="handleClick"
+            v-model="activeName"
+            :tab-position="tabPosition"
+            style="height: auto"
+          >
+            <el-tab-pane
+              :name="'tab' + index"
+              :class="item.lev"
+              v-for="(item, index) in navList"
+              :key="index"
+              :label="item.name"
+            ></el-tab-pane>
+          </el-tabs>
+        </div>
       </div>
+      
     </div>
   </div>
 </template>
@@ -261,6 +258,25 @@ export default {
         el.lev = "lev" + el.localName.substring(index + 1, el.localName.length) //截取下标，获取title的级别
       })
     },
+    logScrollHeight() {
+      //获取catalog元素
+      let catalog = document.getElementsByClassName("catalog")
+      //获取catalog-box元素
+      let catalog_box = document.getElementsByClassName("catalog-box") 
+      //获取catalog距离浏览器顶部的高度
+      let cTop = catalog[0].offsetTop
+      // console.log(window.pageYOffset)
+      //如果浏览器页面滚动高度大于目录距离页面顶部的高度，将外部box的position设置为fixed
+      if (window.pageYOffset > cTop) {
+        catalog_box[0].style.position = "fixed"
+        //调整box的宽度
+        catalog_box[0].style.width = "20%"
+      } else if (window.pageYOffset < cTop) {
+        // 当鼠标滚轮网上滚，页面滚动高度小于目录距离页面顶部的高度时，重置外部box的position跟width
+        catalog_box[0].style.position = ""
+        catalog_box[0].style.width = ""
+      }
+    },
   },
   watch: {
     scroll: function () {
@@ -271,6 +287,7 @@ export default {
   mounted() {
     // scroll代表滚动条距离页面顶部距离
     window.addEventListener("scroll", this.dataScroll)
+    window.addEventListener("scroll", this.logScrollHeight)
     this.selectAllTitle()
     this.$nextTick(() => {
       setTimeout(() => {
@@ -343,13 +360,11 @@ export default {
 }
 .atc-main {
   width: 50%;
-  margin: 0px 15px 0px 200px;
+  margin: 0px 15px 200px 200px;
   background-color: white;
   padding: 25px 20px 20px 20px;
 }
-.el-tabs__active-bar {
-  width: 10px;
-}
+
 .el-tabs__header.is-right {
   height: auto;
   width: 100%;
@@ -373,29 +388,43 @@ export default {
 .app-card {
   display: inline-block;
 }
-.app-card-download{
+.app-card-download {
   font-size: 16px;
-  border: 4px;
+  padding-bottom: 24px;
 }
-.app-card-text{
+.app-card-text {
   color: #8a919f;
   border: 4px;
+}
+.mulu {
+  background-color: white;
 }
 .catalog {
   max-height: 500px;
   background-color: white;
-  overflow: scroll;
+  overflow: hidden;
+  // width: 20%;
+  // position: fixed;
   border-radius: 5px;
 }
-.catalog::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
-}
+// .catalog::-webkit-scrollbar {
+//   width: 0;
+//   height: 0;
+//   color: transparent;
+// }
 .container {
   display: flex;
   width: 100%;
   height: 100%;
   padding-top: 20px;
+  justify-content: center;
+  align-items: flex-start;
 }
+
+@media screen and (max-width: 1000px) {
+    .aside {
+      display: none;
+    }
+  }
+
 </style>
