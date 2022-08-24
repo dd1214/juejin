@@ -59,9 +59,10 @@
           <!-- 消息图标 -->
           <el-button type="text" icon="el-icon-bell" class="message-btn"></el-button>
 
-          <!-- 用户头像 -->
+          <!-- 用户头像 of 登录按钮 -->
           <div>
-            <el-avatar>user</el-avatar>
+            <el-avatar v-if="isLogin">user</el-avatar>
+            <el-button v-if="!isLogin" @click="openLoginDialog">登录</el-button>
           </div>
         </el-col>
       </el-row>      
@@ -70,9 +71,16 @@
 </template>
 
 <script>
-
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'Navbar',
+  computed: {
+    ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow', 'userInfo'])
+  },
+  methods: {
+    // 点击导航栏的登录按钮，弹出登录对话框
+    ...mapMutations('loginOptions', {openLoginDialog: 'OPEN_LOGIN_DIALOG'})
+  }
 }
 </script>
 
