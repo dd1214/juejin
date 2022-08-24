@@ -15,9 +15,9 @@
       <el-form-item label="密码" prop="password">
         <el-input type="password" v-model="rulesForm.password"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-        <el-button>重置</el-button>
+      <el-form-item class="login-buttons">
+        <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+        <el-button @click="dismiss">取消</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -68,6 +68,10 @@ export default {
           return false
         }
       });
+    },
+    // 点击取消按钮，关闭登录的弹窗
+    dismiss(){
+
     }
   }
 }
