@@ -373,7 +373,9 @@ export default {
 
 <style scoped lang="less">
 .es-container {
-  margin: 15px 15px 0 0;
+  position: absolute;
+  top:334px;
+  left:200px;
   .nav {
     display: flex;
     justify-content: flex-start;

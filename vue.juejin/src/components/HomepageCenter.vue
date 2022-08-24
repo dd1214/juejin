@@ -1,5 +1,4 @@
 <template>
-
 <div class="personal-data">
             <div>
                <div class="itemscope">
@@ -20,24 +19,21 @@
                     </div>
                     <div class="link">
                         <a href="" class="click">
-                           <img src="../assets/info/weibo.jpg" alt="">
+                           <img src="../assets/info/weibo.jpg" alt="" width="30px">
                         </a>
                         <a href="" class="click">
-                           <img src="../assets/info/github.jpg" alt="">
+                           <img src="../assets/info/github.jpg" alt="" width="26px">
                         </a>
                         <a href="" class="click">
-                           <img src="../assets/info/address.jpg" alt="">
+                           <img src="../assets/info/address.jpg" alt="" width="23px">
                         </a>
+                    </div>
+                    <hr>
+                    <div class="edit">
+                        <button style="width: 120px;height:30px">编辑个人资料</button>
                     </div>
 
-                    <div class="edit">
-                        <button style="width: 150px;height:40px">编辑个人资料</button>
-                    </div>
-                </div>
-             <hr>
-        </div>
-       
-        <div class="father">
+                    <div class="father">
                 <a href="" class="text">
                 <div class="badge">
                     <img src="../assets/info/badge.png" alt="" width="20px">
@@ -49,19 +45,21 @@
                     </ul>
                 </div>
                 </a>
+                </div>
+                </div>
         </div>
-    
+       
         <div class="navigation">
-            <div class="navi">
-            <a href="" class="text">文章</a>
-            <a href="" class="text">专栏</a> 
-            <a href="" class="text">沸点</a>
-            <a href="" class="text">收藏集</a>
-            <a href="" class="text">关注</a>
-            <a href="" class="text">赞</a>
-            </div>
+            <el-menu default-active="1" class="nav-link" mode="horizontal">
+            <el-menu-item index="1"><el-link >文章</el-link></el-menu-item>
+            <el-menu-item index="2"><el-link >专栏</el-link></el-menu-item>
+            <el-menu-item index="3"><el-link >沸点</el-link></el-menu-item>
+            <el-menu-item index="4"><el-link >收藏集</el-link></el-menu-item>
+            <el-menu-item index="5"><el-link >关注</el-link></el-menu-item>
+            <el-menu-item index="6"><el-link >赞</el-link></el-menu-item>
+          </el-menu> 
            <div class="search">
-           <img src="../assets/info/search.jpg" alt="">
+           <img src="../assets/info/search.jpg" alt="" width="26px">
            </div>
         </div>
 </div>
@@ -74,21 +72,25 @@ export default {
 </script>
 
 <style scoped>
- .personal-data
+        .personal-data
         {
-            width: 800px;
+            display:absolute;
+
         }
         .head-photo
         {
-            margin-top: 40px;
+            margin-top: 20px;
             display: inline-block;
         }
         .itemscope
         {
-            width: 800px;
+            width: 700px;
+            height: 180px;
             background-color: #fff;
             display: inline-block;
-            position: relative;
+            position: absolute;
+            top: 80px;
+            left: 200px;
         }
 
         .user-info
@@ -103,13 +105,13 @@ export default {
         {
             display:inline-block;
             float:right;
-            margin-top:40px;
-            margin-right:380px;
+            margin-top:30px;
+            margin-right:330px;
         }
         .introduce
         {
             position: absolute;
-            top:90px;
+            top:70px;
             left:150px;
         }
 
@@ -121,16 +123,16 @@ export default {
         .link
         {
             position: absolute;
-            top: 50px;
-            left: 600px;
+            top: 40px;
+            left: 570px;
         }
         .edit{
             position:absolute;
-            top: 100px;
-            left: 590px;
+            top: 80px;
+            left: 550px;
         }
         .badge{
-            width: 800px;
+            width: 700px;
             position: absolute;
             top: 17px;
             left: 10px;
@@ -141,42 +143,54 @@ export default {
             position: absolute;
             top:15px;
             left:35px;
+            width: 120px;
             display: inline-block;
         }
         .badge-list
         {
             padding: 0 0 0 0 ;
             position: absolute;
-            top: 2px;
-            left: 790px;
+            top: 15px;
+            left: 690px;
             display: inline-block;
         }
         .navigation{
-            position: relative;
-            width: 800px;
-            height: 100px;
+            position: absolute;
+            top:200px;
+            width: 700px;
+            height: 80px;
+            background-color: #fff;
+            font-size: 18px;
             margin-top: 70px;
+            margin-left: 200px;
         }
         .text
         {
             text-decoration: none;
             color: black;
             margin-right: 40px;
-            font-size: 22px;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: lighter;
         }
         .father
         {
-            position: relative;
+            position: absolute;
         }
         .search
         {
             position: absolute;
-            top:20px;
-            left: 790px;
+            top:18px;
+            left: 650px;
         }
         .navi{
             position: absolute;
             top:20px;
             left: 0px;
+        }
+        .nav-link-dropdown {
+          font-size:20px;
+          color: #1e80ff;
+          cursor: pointer;
         }
 </style>
