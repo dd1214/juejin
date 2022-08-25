@@ -16,8 +16,8 @@ const generateToken = function (req) {
 const c = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'zzq27388',
-  database: 'juejin_test',
+  password: '1234',
+  database: 'test',
 })
 
 c.connect((err) => {

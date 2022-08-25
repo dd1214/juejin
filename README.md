@@ -15,5 +15,12 @@
   2. 安装完成之后命令行进入 server 文件夹，执行 `npm i` 来安装依赖
   3. **注意在本文件中的 `mysql.createConnection` 函数中修改 password 为 1.1 中 root 账户的密码**
   3. 执行 `node server-zzq.js` 来运行服务
+  
+# 2、运行vue 
+  新建终端后输入
 
+  cd vue.juejin
 
+  进入vue.juejin文件夹后输入
+
+  npm run serve
