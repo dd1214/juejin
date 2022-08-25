@@ -59,7 +59,7 @@
           <!-- 消息图标 -->
           <el-button type="text" icon="el-icon-bell" class="message-btn"></el-button>
 
-          <!-- 用户头像 of 登录按钮 -->
+          <!-- 用户menu -->
           <div>
             <!-- 登录后 -->
             <el-popover placement="bottom" trigger="click" v-if="isLogin">
@@ -80,7 +80,7 @@
                     </div>
                   </div>
                   <!-- <<<<<<< Updated upstream -->
-                  <a href="" class="progress-list" @click="jump2PersonalPage('gerenzhuye')">
+                  <a href="" class="progress-list">
                     <div class="jscore" style="background-color: #fff">
                       <div class="js-level">
                         掘友等级
@@ -123,7 +123,7 @@
                   <li class="drop-down">
                     <div class="open-menu">
                       <img src="@/assets/info/homepage.jpg" alt="" ip="image" />
-                      <el-link :underline="false" @click="jumpTOPersonalPage('gerenzhuye')">我的主页</el-link>
+                      <el-link :underline="false" @click="jump2PersonalPage('gerenzhuye')">我的主页</el-link>
                     </div>
                   </li>
                   <li class="drop-down">
@@ -178,14 +178,13 @@
             <el-button @click="openLoginDialog" v-if="!isLogin">登录</el-button>
           </div>
         </el-col>
-      </el-row>      
+      </el-row>
     </div>
   </div>
 </template>
 
 <script>
-
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'Navbar',
@@ -193,7 +192,6 @@ export default {
     ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow', 'userInput']),
   },
   methods: {
-
     ...mapMutations('loginOptions', { openLoginDialog: 'OPEN_LOGIN_DIALOG', logout: 'LOGOUT' }),
 
     jump2PersonalPage(pageName) {
@@ -206,8 +204,8 @@ export default {
       }
     },
   },
-
 }
+
 </script>
 
 <style scoped lang="less">

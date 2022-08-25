@@ -1,11 +1,6 @@
 <!-- 全部文章页，主要做到无限向下滚动 -->
 <template>
   <div class="es-container">
-    <ul class="nav">
-      <li @click="activate(1)" :class="{ active: activeIndex == 1 }">推荐</li>
-      <li @click="activate(2)" :class="{ active: activeIndex == 2 }">最新</li>
-      <li @click="activate(3)" :class="{ active: activeIndex == 3 }">热榜</li>
-    </ul>
     <div class="content" ref="essaylist">
       <Essay v-for="(essay, index) in essays" :key="index" :essay="essay" @click.native="jump2Atc('xiangqingye')" />
     </div>
@@ -378,7 +373,9 @@ export default {
 
 <style scoped lang="less">
 .es-container {
-  margin: 15px 15px 0 0;
+  position: absolute;
+  top:334px;
+  left:200px;
   .nav {
     display: flex;
     justify-content: flex-start;
