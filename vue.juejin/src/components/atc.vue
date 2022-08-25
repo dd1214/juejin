@@ -3,6 +3,9 @@
     <div class="suspended-panel">
       
     </div>
+    <div class="suspended-panel">
+      
+    </div>
     <div class="atc-main">
       <div class="article-title">前端设计模式|青训营笔记</div>
       <div class="author-info flex">
@@ -91,13 +94,19 @@
       </div>
     </div>
     <el-backtop :bottom="100" :visibility-height="50"></el-backtop>
+    <el-backtop :bottom="100" :visibility-height="50"></el-backtop>
   </div>
+
 
 </template>
 <script>
 // import Like from './like.vue'
 
 export default {
+  name: 'Atc',
+  components: {
+    // Like
+  },
   name: 'Atc',
   components: {
     // Like
@@ -181,7 +190,7 @@ export default {
       this.loadScroll()
     },
   },
-  created() { },
+  created() {  },
   mounted() {
     // scroll代表滚动条距离页面顶部距离
     window.addEventListener("scroll", this.dataScroll)
@@ -256,20 +265,24 @@ h6 {
   cursor: pointer;
 }
 
+
 .el-avatar {
   margin-right: 12px;
   cursor: pointer;
 }
+
 
 .author-name {
   font-size: 16px;
   cursor: pointer;
 }
 
+
 .meta-box {
   margin-top: 2px;
   color: rgb(134, 134, 134);
 }
+
 
 .follow-button {
   margin: 15px 20px 15px auto;
@@ -284,10 +297,12 @@ h6 {
   color: #1e80ff;
 }
 
+
 .follow-button:hover {
   background: rgb(30, 128, 255, 0.15);
   transition: 300ms;
 }
+
 
 .atc-main {
   width: 50%;
@@ -310,6 +325,7 @@ h6 {
   border-radius: 5px;
 }
 
+
 .app-link {
   margin: 5px 0;
   cursor: pointer;
@@ -318,23 +334,28 @@ h6 {
   padding: 10px;
 }
 
+
 .app-card {
   display: inline-block;
 }
+
 
 .app-card-download {
   font-size: 16px;
   padding-bottom: 24px;
 }
 
+
 .app-card-text {
   color: #8a919f;
   border: 4px;
 }
 
+
 .mulu {
   background-color: white;
 }
+
 
 .catalog {
   max-height: 500px;
@@ -344,6 +365,7 @@ h6 {
   // position: fixed;
   border-radius: 5px;
 }
+
 
 // .catalog::-webkit-scrollbar {
 //   width: 0;
