@@ -36,11 +36,18 @@ func Publish(c *gin.Context) {
 	title := c.Query("title")
 	text := c.Query("text")
 	introduction := text[:Min(15, int64(len(text)))]
-	db.Exec("insert into Article(ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text, Introduction)value(?, ?, ?, ?, ?, ?, ?, ?, ?)", newID, users[0].ID, Url, 0, 0, 0, title, publishTime, text, introduction)
-	c.JSON(http.StatusOK, Response{
-		StatusCode: 0,
-		StatusMsg:  title + " uploaded successfully",
-	})
+	_, err := db.Exec("insert into Article(ID, AuthorID, Url, FavoriteCount, CommentCount, IsFavorite, Title, PublishTime, Text, Introduction)value(?, ?, ?, ?, ?, ?, ?, ?, ?)", newID, users[0].ID, Url, 0, 0, 0, title, publishTime, text, introduction)
+	if err != nil {
+		c.JSON(http.StatusOK, Response{
+			StatusCode: 0,
+			StatusMsg:  title + " uploaded successfully",
+		})
+	} else {
+		c.JSON(http.StatusOK, Response{
+			StatusCode: 1,
+			StatusMsg:  title + " uploaded fail",
+		})
+	}
 }
 
 // PublishList all users have same publish video list
@@ -76,7 +83,7 @@ func PublishList(c *gin.Context) {
 			FavoriteCount: article.FavoriteCount,
 			CommentCount:  article.CommentCount,
 			IsFavorite:    article.IsFavorite,
-			Text:          "",
+			Text:          article.Text,
 			Title:         article.Title,
 			Introduction:  article.Introduction,
 		})

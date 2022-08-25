@@ -71,11 +71,11 @@ func dbInit() {
 	defer client.Close()
 
 	mysql.RegisterDialContext("mysql+tcp", (&ViaSSHDialer{client}).Dial)
-	dsn := "root:flash123@tcp(127.0.0.1:3306)/juejin"
+	dsn := "root:flash123@tcp(127.0.0.1:3306)/juejin?charset=utf8&parseTime=True"
 
 	database, err := sqlx.Open("mysql", dsn)
 	//本地数据库，测试用
-	//database, err := sqlx.Open("mysql", "root:passwordY@tcp(localhost:3306)/dbname") //此行需修改本地MySQL密码和数据库名称
+	//database, err := sqlx.Open("mysql", "root:flash123@tcp(localhost:3306)/juejin") //此行需修改本地MySQL密码和数据库名称
 	if err != nil {
 		fmt.Println("open mysql failed,", err)
 		return

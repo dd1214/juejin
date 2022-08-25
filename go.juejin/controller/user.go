@@ -68,7 +68,7 @@ func Login(c *gin.Context) {
 	//返回响应
 	if user != nil {
 		c.JSON(http.StatusOK, UserLoginResponse{
-			Response: Response{StatusCode: 0},
+			Response: Response{StatusCode: 0, StatusMsg: ""},
 			UserId:   user[0].ID,
 			Token:    token,
 		})
