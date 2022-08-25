@@ -61,8 +61,121 @@
 
           <!-- 用户头像 of 登录按钮 -->
           <div>
-            <el-avatar v-if="isLogin">user</el-avatar>
-            <el-button v-if="!isLogin" @click="openLoginDialog">登录</el-button>
+            <!-- 登录后 -->
+            <el-popover placement="bottom" trigger="click" v-if="isLogin">
+              <!-- 信息框 -->
+              <div class="infobox">
+                <div class="user-card">
+                  <div class="user-info">
+                    <div class="avatar">
+                      <img src="@/assets/info/head protrait.jpg" alt="" class="lazy avatar" width="40px" />
+                    </div>
+                    <div class="user-detail">
+                      <p class="name">{{userInput.username}}</p>
+                      <div class="ore">
+                        矿石:
+                        <span>2.8w</span>
+                        <img src="@/assets/info/unfold.jpg" alt="" class="path" />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <<<<<<< Updated upstream -->
+                  <a href="" class="progress-list" @click="jump2PersonalPage('gerenzhuye')">
+                    <div class="jscore" style="background-color: #fff">
+                      <div class="js-level">
+                        掘友等级
+                        <span>JY.4</span>
+                        <!-- =======
+                <ul class="drop-down list box">
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/homepage.jpg" alt="" ip="image" />
+                      <span @click="jumpTOPersonalPage(gerenzhuye)">我的主页</span>
+>>>>>>> Stashed changes -->
+                      </div>
+                      <div class="progress">
+                        <span>
+                          308.4/500
+                          <img src="@/assets/info/unfold.jpg" alt="" class="progress-path" />
+                        </span>
+                      </div>
+                      <div class="bar">
+                        <div class="current-bar" style="width: 128px"></div>
+                      </div>
+                    </div>
+                  </a>
+                  <ul class="status-bar">
+                    <li class="item">
+                      <div class="item-count">2</div>
+                      <div class="item-name">关注</div>
+                    </li>
+                    <li class="item">
+                      <div class="item-count">27</div>
+                      <div class="item-name">赞过</div>
+                    </li>
+                    <li class="item">
+                      <div class="item-count">1</div>
+                      <div class="item-name">收藏</div>
+                    </li>
+                  </ul>
+                </div>
+                <ul class="drop-down list box">
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/homepage.jpg" alt="" ip="image" />
+                      <el-link :underline="false" @click="jumpTOPersonalPage('gerenzhuye')">我的主页</el-link>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu" style="width: 100px">
+                      <img src="@/assets/info/welfare.jpg" alt="" ip="image" />
+                      <el-link :underline="false">成长福利</el-link>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/member.jpg" alt="" ip="image" />
+                      <el-link :underline="false">会员中心</el-link>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/course.jpg" alt="" ip="image" />
+                      <el-link :underline="false">我的课程</el-link>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/discounts.jpg" alt="" ip="image" />
+                      <el-link :underline="false">我的优惠</el-link>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/apply.jpg" alt="" ip="image" />
+                      <el-link :underline="false">我的报名</el-link>
+                    </div>
+                  </li>
+                  <li class="drop-down">
+                    <div class="open-menu">
+                      <img src="@/assets/info/footprint.jpg" alt="" ip="image" />
+                      <el-link :underline="false">我的足迹</el-link>
+                    </div>
+                  </li>
+                </ul>
+                <div style="display: flex">
+                  <el-link :underline="false">我的设置</el-link>
+                  <div class="hide"></div>
+                  <el-link :underline="false" @click="logout">退出登录</el-link>
+                </div>
+              </div>
+
+              <div class="avatar-div" style="width: 40px; height: 40px" slot="reference">
+                <img src="@/assets/info/head protrait.jpg" style="width: 100%; height: 100%; cursor: pointer" />
+              </div>
+            </el-popover>
+            <!-- 登录前 -->
+            <el-button @click="openLoginDialog" v-if="!isLogin">登录</el-button>
           </div>
         </el-col>
       </el-row>      
@@ -71,16 +184,29 @@
 </template>
 
 <script>
-import {mapState, mapMutations} from 'vuex'
+
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   name: 'Navbar',
   computed: {
-    ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow', 'userInfo'])
+    ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow', 'userInput']),
   },
   methods: {
-    // 点击导航栏的登录按钮，弹出登录对话框
-    ...mapMutations('loginOptions', {openLoginDialog: 'OPEN_LOGIN_DIALOG'})
-  }
+
+    ...mapMutations('loginOptions', { openLoginDialog: 'OPEN_LOGIN_DIALOG', logout: 'LOGOUT' }),
+
+    jump2PersonalPage(pageName) {
+      // 路由跳转之前校验是否重复跳转到当前路由，是的话则不跳转
+      if (this.$route.name != pageName) {
+        let newRoute = this.$router.resolve({
+          name: pageName,
+        })
+        window.open(newRoute.href, '_blank')
+      }
+    },
+  },
+
 }
 </script>
 
@@ -200,11 +326,12 @@ export default {
             right: -62px;
             min-width: 140px;
             margin: 0 12px;
+            &:hover {
+              z-index: 0;
+            }
+
             & > * {
               width: 100%;
-            }
-            &:hover{
-              z-index: 0;
             }
           }
         }

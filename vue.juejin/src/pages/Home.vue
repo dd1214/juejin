@@ -5,7 +5,7 @@
   <LinkPop/>
   <!-- 注册登陆 -->
   <Land v-if="isLoginDialogShow"/>
-  <!-- <Register/> -->
+  <Register v-if="isRegisterDialogShow"/>
   <!-- 下半区 -->
   <LowerHalf/>
   
@@ -28,7 +28,9 @@ export default {
     Navbar,LowerHalf,LinkPop,Land,Register
   },
   computed:{
-    ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow'])
+    ...mapState('loginOptions', ['isLogin', 'isLoginDialogShow']),
+    
+    ...mapState('registerOptions', ['isRegisterDialogShow'])
   }
 }
 </script>

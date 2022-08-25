@@ -27,6 +27,7 @@ export default {
   justify-content: center;
   align-items: flex-start;
   overflow-y: hidden;
+  background-color: #f2f3f6;
   // .ads {
   // }
   @media screen and (max-width: 1000px) {
