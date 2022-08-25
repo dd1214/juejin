@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test server</title>
+  </head>
+  <body>
+    <button id="fetch">fetch</button>
+    <br />
+    <button id="login">login</button>
+    <input type="text" placeholder="请输入用户名" id="username" />
+    <input type="text" placeholder="请输入密码" id="password" />
+    <br />
+    <button id="post">post</button>
+    <input type="text" id="postContent" />
+    <script>
+      const btnFetch = document.querySelector('#fetch')
+      const btnPost = document.querySelector('#post')
+      const btnLogin = document.querySelector('#login')
+
+      btnFetch.addEventListener('click', () => {
+        fetch('http://localhost:5000/users')
+          .then((res) => {
+            return res.json()
+            // return JSON.parse(res)
+          })
+          .then((data) => console.log(data))
+      })
+      btnPost.addEventListener('click', () => {
+        const u = document.querySelector('#postContent').value
+        fetch('http://localhost:5000/users/register', {
+          method: 'post',
+          body: JSON.stringify({
+            username: u,
+            password: 'pass',
+          }),
+          headers: {
+            'Content-type': 'application/json',
+          },
+        })
+          .then((res) => {
+            return res.json()
+            // return JSON.parse(res)
+          })
+          .then((data) => console.log(data))
+      })
+      // 登录
+      btnLogin.addEventListener('click', () => {
+        const username = document.querySelector('#username').value
+        const password = document.querySelector('#password').value
+        fetch('http://localhost:5000/users/login', {
+          method: 'post',
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+          headers: {
+            'Content-type': 'application/json',
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+      })
+    </script>
+  </body>
+</html>

@@ -1,4 +1,5 @@
-const REGISTER_URL = 'http://localhost:5000/users/register'
+const REGISTER_URL_TEST = 'http://localhost:5000/users/register'
+const REGISTER_URL = 'http://127.0.0.1:8888/juejin/user/register/'
 
 export default {
   namespaced: true,
@@ -20,7 +21,7 @@ export default {
         return
       }
       // 向服务端发送请求，进行登录
-      fetch(REGISTER_URL, {
+      fetch(REGISTER_URL_TEST, {
         method: 'post',
         body: JSON.stringify({
           username,
@@ -32,11 +33,29 @@ export default {
       }).then(res => res.json())
       .then(data => {
         console.log(`response: ${data}`) 
-        // data: {
+        // data(本地测试): {
         //   token: 登录成功时会返回 token， 失败时没有
         //   flag: true | false, 表示是否登录成功
         // }
-        if(data.flag){
+
+
+      //   data(远程)/**
+      //   * 状态码，0-成功，其他值-失败
+      //   */
+      //  status_code: number;
+      //  /**
+      //   * 返回状态描述
+      //   */
+      //  status_msg: string;
+      //  /**
+      //   * 用户鉴权token
+      //   */
+      //  token: string;
+      //  /**
+      //   * 返回的用户id
+      //   */
+      //  user_id: number;
+        if(!data.status_code){
           context.commit('REGISTERED', data.token)
           context.commit('CLOSE_REGISTER_DIALOG')
         }else{

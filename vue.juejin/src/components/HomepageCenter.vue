@@ -4,7 +4,7 @@
                <div class="itemscope">
                 <img src="../assets/info/head protrait.jpg" alt="" width="100px" class="head-photo">
                     <h1 class="user-name">
-                        user-name
+                        {{username}}
                         <span>
                             <img src="../assets/info/l-grade.jpg" alt="" width="40px">
                         </span>
@@ -66,8 +66,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     name:"HomepageCenter",
+    data(){
+        return {
+            username: localStorage.getItem('username') || 'username'
+        }
+    }
 }
 </script>
 

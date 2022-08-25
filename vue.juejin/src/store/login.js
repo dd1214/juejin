@@ -73,6 +73,7 @@ export default {
       state.isLogin = true
       // this.commit('loginOptions/CLEAR_USER_INPUT')
       localStorage.setItem('token', token)
+      localStorage.setItem('username', state.userInput.username)
     },
     // 登出，清空 localStorage，刷新页面
     LOGOUT(state){
