@@ -23,4 +23,6 @@
   2. 修改 `server-zzq.js` 中的 `port` 为一个合理的端口号（一般大于 1024 即可）；之后在 vue.juejin 的项目代码里，找到 `/src/store/login.js`和`/src/store/register.js`，将最上方的 url 中的端口号修改为刚才指定的端口号。
 
 
+  进入vue.juejin文件夹后输入
 
+  npm run serve

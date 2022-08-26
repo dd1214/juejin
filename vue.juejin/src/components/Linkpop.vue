@@ -36,56 +36,79 @@ export default {
           id: 3,
           info: {
             main: '后端',
-            sub: ['后端', 'java', 'go'],
+            sub: ['后端', 'java', 'go','算法', 'Python',
+                  'SpringBoot', 'MySQL','数据库', '面试', 
+                  'Spring', '架构', 'Redis', 'LeetCode', 
+                  '前端', 'Linux'],
           },
         },
         {
           id: 4,
           info: {
             main: '前端',
-            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css'],
+            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css',
+            '面试', 'TypeScript', '后端', 
+            'Node.js', '前端框架', '算法', 'Webpack', 
+            '架构', '微信小程序', 'Android'],
           },
         },
         {
           id: 5,
           info: {
             main: 'Android',
-            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css'],
+            sub: [
+            'Android','Kotlin', 'Flutter', '前端', 
+            'Android Jetpack', 'Java', 'APP',
+            'Android Studio', '源码', '面试','性能优化', 
+            '架构', 'gradle', 'iOS', '程序员'],
           },
         },
         {
           id: 6,
           info: {
             main: 'iOS',
-            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css'],
+            sub: ['iOS','Swift','SwiftUl','Flutter','算法', 
+                  '前端','LeetCode','Objective-C','Xcode', 
+                  'Mac','WWDC','Apple','计算机视觉', 
+                  'Android','前端框架'],
           },
         },
         {
           id: 7,
           info: {
             main: '人工智能',
-            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css'],
+            sub: ['人工智能', '深度学习', '算法', '机器学习', 
+                  'Python', '计算机视觉', '后端', 'NLP', 
+                  'PyTorch', '神经网络', '数据分析', 
+                  'TensorFlow', '程序员', '数据可视化',
+                  '自动驾驶'],
           },
         },
         {
           id: 8,
           info: {
             main: '开发工具',
-            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css'],
+            sub: ['后端', '前端', '开源', 'Git', 'GitHub', 
+                  '测试', 'Linux', '设计', '数据库', '大数据', 
+                  '程序员', 'Python', 'JavaScript', 'Unity3D', 
+                  '云原生'],
           },
         },
         {
           id: 9,
           info: {
             main: '代码人生',
-            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css'],
+            sub: ['程序员', '前端', '后端', '算法', 
+                  'JavaScript', 'Python', 'Java 架构 ',
+                  '面试', '开源', '大数据', '年终总结', 
+                  'Linux', '数据结构', '数据库'],
           },
         },
         {
           id: 10,
           info: {
             main: '阅读',
-            sub: ['前端', 'JavaScript', 'Vue.js', 'React.js', 'css'],
+            sub: [],
           },
         },
       ],

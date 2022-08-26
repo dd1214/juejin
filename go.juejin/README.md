@@ -1,4 +1,3 @@
-后端部分，框架结构未改进，本地运行服务器，占用8080端口。
-运行方法：cmd跳转到本文件夹，输入指令
-go build main.go router.go
-随后会生成main.exe文件，运行即可。
+后端部分，框架结构未改进，本地运行服务器，占用8888端口。
+服务器运行方法：先配置好MySQL数据库，数据结构如controller内common.go文件里的如dbUser,dbArticle等结构所示。
+随后运行main.exe即可。
