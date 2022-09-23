@@ -1,0 +1,206 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #eee;
+  }
+  /* * {
+    border: 1px solid #333;
+  }    */
+  .flex {
+    display: flex;
+  }
+  .flexCenter {
+    justify-content: center;
+    align-items: center;
+  }
+  /* 占满比例 */
+  .flex1 {
+    flex: 1;
+  }
+  /* 竖向 */
+  .column {
+    flex-direction: column;
+  }
+  /* 阴影 */
+  .shadow {
+    box-shadow: rgba(0, 0, 0, 0) 0px 2px 1px -1px,
+      rgb(0 0 0 / 1%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  }
+  .font-size14{
+    font-size:14px
+  }   
+  /* 白色背景 */
+  .white {
+    background-color: #fff;
+  }
+  /* 上下左右外边距 */
+  .mg8 {
+    margin: 8px;
+  }
+  .mg17 {
+    margin: 11px;
+    margin-left:17px;
+  }
+  .mg10{
+    margin: 10px;
+  }
+  .mg14{
+    margin: 14px;
+  }
+  .mg25{
+    margin-left:25px
+  }
+  /* 左外边距 */
+  .mgl20 {
+    margin-left: 20px;
+  }
+  /* 右外边距 */
+  .mgr8 {
+    margin-right: 8px;
+  }
+  /* 上外边距 */
+  .mgt8 {
+    margin-top: 8px;
+  }
+  /* 下外边距 */
+  .mgb1 {
+    margin-bottom: 1px;
+  }
+  /* 文章 */
+  .article {
+    height: 160px;
+  }
+  
+ .none{
+    display: none;
+ }
+ .h200w240{
+    height:200px;
+    width: 240px;
+ }
+ /* // 登录按钮 */
+ .nav-item login{
+   color: #c53c7c;
+   padding: 0 0 0 .833rem;
+ }
+
+ .login
+ {
+   background-color: rgba(30,128,255,.05);
+   border-color: #0d3966;
+   border: rgba(30,128,255,.3);
+   border-radius: 4px;
+   padding: .3rem 1.5rem;
+   color: #288cef;
+   line-height: 1.9rem;
+   font-size: 16px;
+   font-weight: 400;
+   height: 3rem;
+ }
+
+ /* // 下拉菜单 */
+ .infobox
+ {
+   background-color: #fff;
+   width:260px;
+   height: 420px;
+   border:1px solid #e4e6eb;
+   border-radius: 4px;
+   padding: 20px;
+   position: absolute;
+   z-index: 999;
+   top: -6px;
+   right: 0px;
+ }
+ .avatar 
+ {
+   display:inline-block;
+ }
+
+ 
+ .user-detail
+ {
+   font-size: 16px;
+   display:inline-block;
+   margin-left: 20px;
+   padding: 15px;
+   font-weight: normal;
+   font-family: "宋黑";
+ }
+  .jscore
+ {
+   background-color: #8da7e1;
+ }
+ 
+ .js-level
+ {
+   font-size: 15px;
+   display: inline-block;
+ }
+ .progress
+ {
+   font-size: 15px;
+   margin-left:34px;
+   display: inline-block;
+ }
+
+
+ .progress-path
+ {
+   background-color: #80c5ed;
+ }
+
+ .item{
+   margin:20px;
+   display:inline-block;
+ }
+
+ .item-name
+ {
+   color:rgb(188, 187, 187);
+   transform:translateX(-30%);
+ }
+
+ .bar
+ {
+   width: 218px;
+   height: 5px;
+   background-color: #1f81ff33;
+   position: relative;
+ }
+
+ .current-bar
+ {
+   height: 5px;
+   background-color: #1c60de;
+   border-radius: 4px;
+   position: absolute;
+ }
+
+ .drop-down
+ {
+   display: inline-block;
+ }
+
+ .open-menu
+ {
+   margin:8px;
+ }
+
+ .hide
+ {
+  width:100px;
+ }
+
+ .setup
+ {
+   margin-top: 10px;
+   color:rgb(188, 187, 187);
+   display: inline-block;
+ }
+
+
+  /* 当屏幕宽度小于600px时要改变的css */
+  @media (max-width: 600px) {
+    
+  }
