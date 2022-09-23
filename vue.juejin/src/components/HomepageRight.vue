@@ -131,7 +131,7 @@ export default {
         }
         #num
         {
-            margin-left: 37px;
+            margin-left: 36px;
             margin-right: 40px;
             margin-top: 5px;
         }
