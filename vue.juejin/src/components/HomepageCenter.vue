@@ -85,7 +85,8 @@ export default {
         }
         .head-photo
         {
-            margin-top: 20px;
+            margin-top: 39px;
+            margin-left: 29px;
             display: inline-block;
         }
         .itemscope

@@ -125,8 +125,9 @@ export default {
         }
         #num
         {
-            margin-left: 20px;
-            margin-right: 50px;
+            margin-left: 36px;
+            margin-right: 40px;
+            margin-top: 5px;
         }
         .per-info
         {
