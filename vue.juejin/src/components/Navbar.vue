@@ -20,8 +20,6 @@
               <el-dropdown-item>直播</el-dropdown-item>
               <el-dropdown-item>活动</el-dropdown-item>
               <el-dropdown-item>商城</el-dropdown-item>
-              <el-dropdown-item>APP</el-dropdown-item>
-              <el-dropdown-item>插件</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
 
@@ -33,8 +31,6 @@
             <el-menu-item index="4"><el-link href="https://juejin.cn/live" target="_blank">直播</el-link></el-menu-item>
             <el-menu-item index="5"><el-link href="https://juejin.cn/events/all" target="_blank">活动</el-link></el-menu-item>
             <el-menu-item index="6"><el-link href="https://element.eleme.io" target="_blank">商城</el-link></el-menu-item>
-            <el-menu-item index="6"><el-link href="" target="_blank">APP</el-link></el-menu-item>
-            <el-menu-item index="6"><el-link href="" target="_blank">插件</el-link></el-menu-item>
           </el-menu>
         </el-col>
 
@@ -114,7 +110,7 @@
                       <div class="item-name">关注</div>
                     </li>
                     <li class="item">
-                      <div class="item-count">26</div>
+                      <div class="item-count">27</div>
                       <div class="item-name">赞过</div>
                     </li>
                     <li class="item">
@@ -179,8 +175,7 @@
               </div>
             </el-popover>
             <!-- 登录前 -->
-            <el-button @click="openLoginDialog" v-if="!isLogin" class="landButton">登录</el-button>
-            <el-link :underline="false" @click="jump2PersonalPage('gerenzhuye')" >我的主页</el-link>
+            <el-button @click="openLoginDialog" v-if="!isLogin">登录</el-button>
           </div>
         </el-col>
       </el-row>
@@ -213,7 +208,7 @@ export default {
 
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 // 最外边的包装 div，用来控制导航栏的左右居中整体宽度
 .bg-container {
   width: 100%;
@@ -222,7 +217,7 @@ export default {
   .nav-container {
     margin: 0 auto;
     width: 100%;
-    max-width: 1325px;
+    max-width: 1440px;
     .nav-bar {
       height: 64px;
       align-items: center;
@@ -230,7 +225,7 @@ export default {
 
       // logo 区域
       .logo-text {
-        width: 100px;
+        width: 107px;
         height: 33px;
       }
       .logo-img {
@@ -276,6 +271,9 @@ export default {
             &.is-active {
               color: #1e80ff;
               border-bottom: none;
+            }
+            &:hover {
+              border-bottom: 1px solid #1e80ff !important;
             }
           }
         }
@@ -349,12 +347,6 @@ export default {
 
         // border: 1px solid skyblue;
       }
-      .landButton{
-        border-color:#1e80ff;
-        background-color:#cde1f84f;
-        color:#1e80ff;
-      }
-    
     }
   }
 }

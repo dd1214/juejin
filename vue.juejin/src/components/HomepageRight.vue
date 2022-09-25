@@ -2,7 +2,7 @@
 <div class="all">
     <!--  个人成就 -->
     <div class="achievement">
-        <p class="achive" style="font-weight:bold">个人成就</p>
+        <p class="achive">个人成就</p>
         <hr class="margin">
         <ul>
             <li>
@@ -25,7 +25,7 @@
     <!-- 关注状态 -->
     <div class="state">
             <div class="center">
-                <p class="state-p" >关注了</p>
+                <p class="state-p">关注了</p>
                 <p class="state-p">关注者</p>
                 <br>
                 <p class="state-p" id="num">2</p>
@@ -36,18 +36,18 @@
     <!-- 个人信息 -->
     <div class="per-info">
         <div>
-            <div id="info-btn" style="font-weight:bold" >收藏集</div>
-            <div id="info-btn" class="info-data" style="font-weight:bold">1</div>
+            <div id="info-btn" >收藏集</div>
+            <div id="info-btn" class="info-data">1</div>
         </div>
         <hr>
         <div>
-            <div id="info-btn" style="font-weight:bold">关注标签</div>
-            <div id="info-btn" class="info-data" style="font-weight:bold">9</div>
+            <div id="info-btn">关注标签</div>
+            <div id="info-btn" class="info-data">9</div>
         </div>
         <hr>
         <div>
-            <div id="info-btn" style="font-weight:bold">加入于</div>
-            <div id="info-btn" class="info-data" style="font-weight:bold">2021-5-25</div>
+            <div id="info-btn">加入于</div>
+            <div id="info-btn" class="info-data">2021-5-25</div>
         </div>
     </div>
 </div>
@@ -65,22 +65,18 @@ export default {
         }
         .all
         {
-            display: flex;
-            flex-direction: column;
-            justify-content:flex-star;
-            align-items: flex-star;
-            margin-top: 10px;
-            margin-left: 8px;
+            position: absolute;
+            top:80px;
+            left:930px;
         }
         .achive{
-            font-size: 17px;
-            margin-left: 20px;
-            margin-top: 10px;
+            font-size: 20px;
+            margin-left: 10px;
         }
         .achievement
         {
             width: 200px;
-            height: 220px;
+            height: 230px;
             background-color: #fff;
             border-width: 2px;
             border-color: rgb(112, 107, 107);
@@ -98,8 +94,8 @@ export default {
         
         .ico
         {
-            margin-top: 12px;
-            margin-left: 15px;
+            margin-top: 20px;
+            margin-left: 10px;
             width: 40px;
         }
         .word
@@ -108,8 +104,8 @@ export default {
             display: inline-block;
             font-weight: lighter;
             float: right;
-            margin-left: 28px;
-            margin-top: 26px;
+            margin-left: 35px;
+            margin-top: 33px;
         }
 
         .center
@@ -122,18 +118,15 @@ export default {
         }
         .state-p
         {
-            font-size: 13px;
+            font-size: 15px;
             font-weight: lighter;
-            margin-left: 20px;
-            margin-right: 25px;
-            margin-top: 6px;
+            margin-right:30px;
             display: inline-block;
         }
         #num
         {
-            margin-left: 36px;
-            margin-right: 40px;
-            margin-top: 5px;
+            margin-left: 20px;
+            margin-right: 50px;
         }
         .per-info
         {
@@ -143,7 +136,7 @@ export default {
             margin-top: 10px;
             margin-bottom: 10px;
             display: inline-block;
-            font-size: 13px;
+            font-size: 15px;
             font-weight: lighter;
         }
         .info-data

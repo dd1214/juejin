@@ -1,66 +1,56 @@
 <template>
-<div class="personaltop">
-            <div class="information">
+<div class="personal-data">
+            <div>
                <div class="itemscope">
-                <div class="head-photo" >
-                <img src="../assets/info/head protrait.jpg" alt="" width="105px"  >
-                    </div>
-                    </div>
-                    <div class="user-name">
-                       <span style="color:black;font-size:xx-large; font-weight: bold;">
+                <img src="../assets/info/head protrait.jpg" alt="" width="100px" class="head-photo">
+                    <h1 class="user-name">
                         {{username}}
-                       </span> 
                         <span>
                             <img src="../assets/info/l-grade.jpg" alt="" width="40px">
                         </span>
                         <span>
                             <img src="../assets/info/j-grade.jpg" alt="" class="j-level" width="40px">
                         </span>
-                    <br /><br />
-                    <br />
-                 
-                        <el-link :underline="false">+你从事什么职业？</el-link>
-                        <br />
-                        <el-link :underline="false">+你的爱好是？</el-link>
+                    </h1>
+                    <div class="introduce">
+                        <a href=""  class="text1" >+ 你从事什么职业？</a>
+                        <br>
+                        <a href="" class="text1" >+ 你的人生格言是什么？</a>
                     </div>
-                   
                     <div class="link">
-                        <a href="" class="link">
-                           <img src="../assets/info/weibo.jpg" width="20" height="20">
+                        <a href="" class="click">
+                           <img src="../assets/info/weibo.jpg" alt="" width="30px">
                         </a>
-                        <a href="" class="link">
-                           <img src="../assets/info/github.jpg" width="20" height="20">
+                        <a href="" class="click">
+                           <img src="../assets/info/github.jpg" alt="" width="26px">
                         </a>
-                        <a href="" class="link">
-                           <img src="../assets/info/address.jpg" width="20" height="20">
+                        <a href="" class="click">
+                           <img src="../assets/info/address.jpg" alt="" width="23px">
                         </a>
-                        </div>
-                    <div class="click">
-                        <el-button  plain style="border-color:#1e80ff;color: #1e80ff;" >编辑个人资料</el-button> 
                     </div>
-                     <el-divider content-position="cnter"></el-divider>
+                    <hr>
+                    <div class="edit">
+                        <button style="width: 120px;height:30px">编辑个人资料</button>
+                    </div>
 
                     <div class="father">
-                       
-                
+                <a href="" class="text">
                 <div class="badge">
-                    
                     <img src="../assets/info/badge.png" alt="" width="20px">
                 </div>
-                <div class="getbadge" style="font-size:14px;">获得徽章  0</div>
+                <div class="getbadge">获得徽章0</div>
                 <div>
                     <ul class="badge-list">
-                        <img src="../assets/info/unfold.jpg" alt="" width="8px">
+                        <img src="../assets/info/unfold.jpg" alt="">
                     </ul>
                 </div>
-                
+                </a>
                 </div>
                 </div>
-                
-      
-    
+        </div>
+       
         <div class="navigation">
-            <el-menu  mode="horizontal" >
+            <el-menu default-active="1" class="nav-link" mode="horizontal">
             <el-menu-item index="1"><el-link >文章</el-link></el-menu-item>
             <el-menu-item index="2"><el-link >专栏</el-link></el-menu-item>
             <el-menu-item index="3"><el-link >沸点</el-link></el-menu-item>
@@ -68,8 +58,10 @@
             <el-menu-item index="5"><el-link >关注</el-link></el-menu-item>
             <el-menu-item index="6"><el-link >赞</el-link></el-menu-item>
           </el-menu> 
-           
-        </div> 
+           <div class="search">
+           <img src="../assets/info/search.jpg" alt="" width="26px">
+           </div>
+        </div>
 </div>
 </template>
 
@@ -86,29 +78,25 @@ export default {
 </script>
 
 <style scoped>
-        .information
+        .personal-data
         {
-            display: flex;
-            flex-direction: column;
-            justify-content:flex-star;
-            align-items: flex-star;
-        
+            display:absolute;
+
         }
         .head-photo
         {
-            margin-top: 39px;
-            margin-left: 29px;
+            margin-top: 20px;
             display: inline-block;
-
         }
         .itemscope
         {
             width: 700px;
-            height: 220px;
+            height: 180px;
             background-color: #fff;
-            margin-top: 10px;
-            margin-left: 3px;
-            margin-bottom: -10px;
+            display: inline-block;
+            position: absolute;
+            top: 80px;
+            left: 200px;
         }
 
         .user-info
@@ -121,68 +109,94 @@ export default {
         }
         .user-name
         {
-            margin-left:170px;
-            margin-top: -175px;
-            justify-content:flex-star;
-            align-items: flex-star;
+            display:inline-block;
+            float:right;
+            margin-top:30px;
+            margin-right:330px;
         }
-        
+        .introduce
+        {
+            position: absolute;
+            top:70px;
+            left:150px;
+        }
 
         .text1
         {
             text-decoration: none;
             color: rgb(10, 10, 186);
         }
-        .link{
-            margin-right: 21px;
-            margin-top: -50px;
-            display: flex;
-            justify-content: end;
+        .link
+        {
+            position: absolute;
+            top: 40px;
+            left: 570px;
         }
-        .click{
-            
-            margin-right: 30px;
-            margin-top: 14px;
-            display: flex;
-            justify-content: end;
-         
+        .edit{
+            position:absolute;
+            top: 80px;
+            left: 550px;
         }
         .badge{
-           
-            margin-top:-12px;
-            margin-left: 43px;
-            
+            width: 700px;
+            position: absolute;
+            top: 17px;
+            left: 10px;
         }
 
         .getbadge
         {
-           
-            margin-top:-11px;
-            margin-left: 10px;
-           
+            position: absolute;
+            top:15px;
+            left:35px;
+            width: 120px;
+            display: inline-block;
         }
         .badge-list
         {
-            margin-top:-9px;
-            margin-left: 525px;
-           
-        
+            padding: 0 0 0 0 ;
+            position: absolute;
+            top: 15px;
+            left: 690px;
+            display: inline-block;
         }
         .navigation{
-            margin-top: 20px;
-            margin-left: 3px;
+            position: absolute;
+            top:200px;
+            width: 700px;
+            height: 80px;
             background-color: #fff;
-           
+            font-size: 18px;
+            margin-top: 70px;
+            margin-left: 200px;
         }
-       
+        .text
+        {
+            text-decoration: none;
+            color: black;
+            margin-right: 40px;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: lighter;
+        }
         .father
         {
-            display: flex;
-            justify-content:row;
+            position: absolute;
         }
-      
-      
-
-        
-        
+        .search
+        {
+            position: absolute;
+            top:18px;
+            left: 650px;
+        }
+        .navi{
+            position: absolute;
+            top:20px;
+            left: 0px;
+        }
+        .nav-link-dropdown {
+          font-size:20px;
+          color: #1e80ff;
+          cursor: pointer;
+        }
 </style>
