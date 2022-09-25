@@ -114,7 +114,7 @@
                       <div class="item-name">关注</div>
                     </li>
                     <li class="item">
-                      <div class="item-count">27</div>
+                      <div class="item-count">26</div>
                       <div class="item-name">赞过</div>
                     </li>
                     <li class="item">

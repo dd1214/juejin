@@ -135,7 +135,7 @@ export default {
   border-top: 1px solid #e6e6e6;
   width: 100%;
   background-color: white;
-  padding-left: 250px;
+  padding-left: 100px;
   padding-top: 0;
   ul {
     display: flex;

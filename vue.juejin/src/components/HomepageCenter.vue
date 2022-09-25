@@ -96,7 +96,7 @@ export default {
         }
         .head-photo
         {
-            margin-top: 38px;
+            margin-top: 39px;
             margin-left: 29px;
             display: inline-block;
 
