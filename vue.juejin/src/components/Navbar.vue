@@ -180,7 +180,6 @@
             </el-popover>
             <!-- 登录前 -->
             <el-button @click="openLoginDialog" v-if="!isLogin" class="landButton">登录</el-button>
-            <el-link :underline="false" @click="jump2PersonalPage('gerenzhuye')" >我的主页</el-link>
           </div>
         </el-col>
       </el-row>

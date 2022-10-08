@@ -14,10 +14,11 @@ const generateToken = function (req) {
 
 // mysql
 const c = mysql.createConnection({
-  host: 'localhost',
+  host: 'gz-cynosdbmysql-grp-1oqt325v.sql.tencentcdb.com',
   user: 'root',
-  password: '1234',
-  database: 'test',
+  password: '011214ljx.',
+  database: 'dian',
+  port:24276,
 })
 
 c.connect((err) => {
@@ -54,7 +55,6 @@ app.get('/users', (req, res) => {
 app.post('/users/register', (req, res, next) => {
   // res.header('Access-Control-Allow-Origin', '*')
   console.log(req.body)
-  console.log('1@@@')
   let id = uuid.v4()
   let token = generateToken(req.body)
   token = token.slice(token.length - 20, token.length)
