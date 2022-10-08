@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 // 服务
 const app = express()
-const port = 5000
+const port = 3008
 
 const generateToken = function (req) {
   let secret = 'i love u'
