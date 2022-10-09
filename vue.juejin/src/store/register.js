@@ -1,5 +1,4 @@
-const REGISTER_URL_TEST = 'http://localhost:5000/users/register'
-const REGISTER_URL = 'http://127.0.0.1:8888/juejin/user/register/'
+const REGISTER_URL_TEST = 'diandian210.top/users/register'
 
 export default {
   namespaced: true,

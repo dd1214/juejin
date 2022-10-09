@@ -1,4 +1,4 @@
-const LOGIN_URL = 'http://localhost:5000/users/login'
+const LOGIN_URL = 'http://diandian210.top/users/login'
 
 export default {
   namespaced: true,
