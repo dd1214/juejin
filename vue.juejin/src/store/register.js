@@ -1,4 +1,4 @@
-const REGISTER_URL_TEST = 'https://diandian210.top/users/register'
+const REGISTER_URL_TEST = 'http://diandian.free.idcfengye.com/users/register'
 
 export default {
   namespaced: true,

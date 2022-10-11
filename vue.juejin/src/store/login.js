@@ -1,4 +1,4 @@
-const LOGIN_URL = 'https://diandian210.top/users/login'
+const LOGIN_URL = 'http://diandian.free.idcfengye.com/users/login'
 
 export default {
   namespaced: true,
