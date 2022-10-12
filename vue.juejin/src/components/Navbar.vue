@@ -50,9 +50,9 @@
             <el-dropdown split-button type="primary" size="small" class="originator-drop">
               创作者中心
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item> <img src="@/assets/write-article.svg" /> 写文章 </el-dropdown-item>
-                <el-dropdown-item> <img src="@/assets/boiling.svg" /> 发沸点 </el-dropdown-item>
-                <el-dropdown-item> <img src="@/assets/coding.svg" /> 写代码 </el-dropdown-item>
+                <el-dropdown-item @click.native="jump2AtcEditor('bianji')"> <img src="@/assets/write-article.svg" /> 写文章 </el-dropdown-item>
+                <el-dropdown-item > <img src="@/assets/boiling.svg" /> 发沸点 </el-dropdown-item>
+                <el-dropdown-item > <img src="@/assets/coding.svg" /> 写代码 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </el-badge>
@@ -207,8 +207,19 @@ export default {
         window.open(newRoute.href, '_blank')
       }
     },
-  },
-}
+    jump2AtcEditor(pageName){
+      if (this.$route.name != pageName) {
+        let newRoute = this.$router.resolve({
+          name: pageName,
+        })
+        window.open(newRoute.href, '_blank')
+      }
+    }
+       
+    }
+  }
+
+
 
 </script>
 

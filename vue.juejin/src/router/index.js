@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from "@/pages/Home"
 import Details from '@/pages/Details';
 import PersionalPage from '@/pages/PersionalPage';
+import Edit from '@/pages/Edit'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const router = new VueRouter({
       path: '/PersionalPage',
       name: 'gerenzhuye',
       component: PersionalPage,
+    },
+    {
+      path:'/Edit',
+      name:'bianji',
+      component:Edit,
     }
   ]
 })
