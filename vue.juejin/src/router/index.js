@@ -4,6 +4,7 @@ import Home from "@/pages/Home"
 import Details from '@/pages/Details';
 import PersionalPage from '@/pages/PersionalPage';
 import Edit from '@/pages/Edit'
+import MarketPage from '@/pages/MarketPage'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const router = new VueRouter({
       path:'/Edit',
       name:'bianji',
       component:Edit,
+    },
+    {
+      path: '/MarketPage',
+      name:'shangcheng',
+      component:MarketPage,
     }
   ]
 })

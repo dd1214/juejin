@@ -32,9 +32,9 @@
             <el-menu-item index="3"><el-link href="https://juejin.cn/course" target="_blank">课程</el-link></el-menu-item>
             <el-menu-item index="4"><el-link href="https://juejin.cn/live" target="_blank">直播</el-link></el-menu-item>
             <el-menu-item index="5"><el-link href="https://juejin.cn/events/all" target="_blank">活动</el-link></el-menu-item>
-            <el-menu-item index="6"><el-link href="https://element.eleme.io" target="_blank">商城</el-link></el-menu-item>
-            <el-menu-item index="6"><el-link href="" target="_blank">APP</el-link></el-menu-item>
-            <el-menu-item index="6"><el-link href="" target="_blank">插件</el-link></el-menu-item>
+            <el-menu-item index="6"><el-link @click.native="jump2Market('shangcheng')" target="_blank">商城</el-link></el-menu-item>
+            <el-menu-item index="7"><el-link href="" target="_blank">APP</el-link></el-menu-item>
+            <el-menu-item index="8"><el-link href="" target="_blank">插件</el-link></el-menu-item>
           </el-menu>
         </el-col>
 
@@ -209,6 +209,14 @@ export default {
     },
     jump2AtcEditor(pageName){
       if (this.$route.name != pageName) {
+        let newRoute = this.$router.resolve({
+          name: pageName,
+        })
+        window.open(newRoute.href, '_blank')
+      }
+    },
+    jump2Market(pageName){
+       if (this.$route.name != pageName) {
         let newRoute = this.$router.resolve({
           name: pageName,
         })
