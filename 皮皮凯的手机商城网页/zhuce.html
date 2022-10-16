@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>账号 - 注册</title>
+    <link href="./css/login.css" type="text/css" rel="stylesheet" />
+    <link href="./css/zhuce.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="left">
+      <img id="background-image" src="./image/login/background-image.jpg">
+    </div>
+
+    <div id="right">
+      <div id="nav">
+        <div class="nav-left">
+          <img src="">
+          <p>账号</p>
+        </div>
+
+        <div class="nav-right ">
+          <select id="language" class="nav-right font ch">
+            <option selected>中文(简体)</option>
+            <option>中文(繁体)</option>
+            <option>English</option>
+          </select>
+          
+          <ul class="nav-right font">
+            <li class="ch">用户协议</li>
+            <li class="ch">隐私政策</li>
+            <li class="ch">帮助中心</li>
+            <li>|</li>
+          </ul>        
+        </div>
+      </div>
+
+      <div id="main">
+        <a href="./login.html" class="noselected  pointer">登录</a>
+        <a href="./zhuce.html" class="selected  pointer">注册</a>
+        <div id="in">
+          <select id="country">
+            <option selected>中国</option>
+            <option>阿富汗</option>
+            <option>英国</option>
+            <option>美国</option>
+            <option>澳大利亚</option>
+          </select>
+          <input type="password" placeholder="手机号">
+          <input type="text" placeholder="短信验证码">
+        </div>
+        <div class="ch-box">
+          <input id="ch-box" class="ch-box" type="checkbox">
+          <div id="text">
+            已阅读并同意帐号<a class="pointer">用户协议</a>和<a class="pointer">隐私政策</a>
+          </div>
+        </div>
+        <div>
+          <button id="log-in" class="pointer"> 注册</button>
+        </div>
+        <div class="action">
+          <a id="a1" class="pointer">收不到验证码？</a>
+        </div>
+        <div id="other">
+          <p>其他方式登录</p>
+          <div>
+            <img src="./image/login/支付宝.png">
+            <img src="./image/login/微信.png">
+            <img src="./image/login/QQ.png">
+            <img src="./image/login/微博.png">
+          </div>
+        </div>
+      </div>
+
+      <div id="tail">
+      
+      </div>
+    </div>
+  </body>
+
+  <script src="./js/login.js" type="text/javascript"></script>
+</html>

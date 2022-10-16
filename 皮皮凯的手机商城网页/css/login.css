@@ -1,0 +1,173 @@
+body{height: 100%;margin: 0;
+min-width: 700px;}
+html{height: 100%;}
+
+#left{
+  display: inline;
+  height: 100%;
+  width: 22%;
+  position: fixed;
+}
+#background-image{
+  display:inline;
+  float: left;
+  position:relative;
+  height:100%;
+  width:100%;
+}
+#right{
+  display: inline;
+  float: right;
+  width: 78%;
+  min-width:700px;
+}
+
+#nav{
+  height: 100px;
+}
+.nav-left{
+  height: 100px;
+  float: left;
+  display: inline;
+}
+#nav img{
+  height: 54px;
+  margin:23px;
+  display: inline;
+}
+#nav p{
+  display: inline;
+  float: right;
+  font-size: 26px;
+  font-weight:600;
+  color: #333333;
+  line-height: 50px;
+  margin: 25px 0;
+}
+.nav-right{
+  height: 80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+  display: inline;
+  cursor: pointer;
+}
+.ch:hover{
+  color: #FF6A00;
+}
+.nav-right li{
+  display:inline;
+  float: left;
+  margin: 30px 10px;
+}
+.font{
+  line-height:40px;
+  font-size: 16px;
+  color: #AEAEAE;
+}
+#language{
+  height: 40px;
+  float:right;
+  margin: 30px 30px 30px 10px;
+  background: none;
+  border: none;
+}
+
+#main{
+  width: 400px;
+  margin:0 auto 80px;
+  padding:40px;
+  box-shadow:0 0 20px  rgb(245, 245, 245) ;
+}
+#main>a{
+  font-size: 22px;
+  margin:5px 10px 5px 0;
+  text-decoration: none;
+}
+.selected{
+  color:#000000;
+  border-bottom: 4px #FF6A00 solid ;
+}
+.noselected{
+  color: #AEAEAE;
+}
+#in>input{
+  display: block;
+  width: 90%;
+  height: 60px;
+  margin: 5% 0;
+  padding: 0;
+  background: #F9F9F9;
+  border: none;
+  font-size: 20px;
+  padding:0 5%;
+  border-radius: 5px;
+}
+#ch-box{
+  width: 20px;
+  margin: 0;
+  float: left;
+  border-color: #FF6A00;
+  cursor: pointer;
+}
+
+.ch-box{
+  height: 30px;
+  line-height: 30px;
+}
+#text{
+  display: inline;
+  float: left;
+  height: 30px;
+  padding: 0 10px;
+  color: #AEAEAE;
+  font-size: 14px;
+}
+#text a{
+  padding:0 3px;
+  color:#000
+}
+
+#log-in{
+  background-color: #FFBE99;
+  width: 100%;
+  height: 60px;
+  margin: 5% 0;
+  padding: 0;
+  border: none;
+  color: #FFF;
+  font-size: 20px;
+  border-radius: 5px;
+}
+#log-in:hover{
+  background: #FFCBA9;
+}
+.action{
+  color: #FF6A00;
+}
+#a2{
+  float: right;
+}
+#other{font-size: 0;}
+#other p{
+  text-align: center;
+  font-size: 17px;
+  color: #AEAEAE;
+}
+#other img{
+  width: 50px;
+  margin: 10px 25px;
+}
+#other img:hover{
+  cursor: pointer;
+}
+#tail{
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #AEAEAE;
+  margin-bottom:10px;
+}
+.pointer:hover{
+  cursor: pointer;
+}

@@ -56,6 +56,7 @@ export default {
             author: '掘金安东尼',
             date: '2022-08-10',
             category: ['前端', '面试'],
+            id:1,
           },
           content: {
             title: 'JavaScript 中如何取消请求',
@@ -66,6 +67,7 @@ export default {
             like: 527,
             comments: 337,
           },
+          detail:{}
         },
         {
           info: {

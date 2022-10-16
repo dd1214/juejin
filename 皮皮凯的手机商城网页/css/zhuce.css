@@ -1,0 +1,12 @@
+#country{
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin: 5% 0;
+  padding: 0;
+  background: #F9F9F9;
+  border: none;
+  font-size: 20px;
+  padding:0 5%;
+  border-radius: 5px;
+}
