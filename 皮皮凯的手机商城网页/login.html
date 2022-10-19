@@ -77,6 +77,14 @@
      function login() {
       var username = document.getElementById("username").value //拿到input框的value值，即账号密码
       var password = document.getElementById("password").value;
+      if(!username){
+        alert("账号不能为空")
+        return
+      }
+      if(!password){
+        alert("密码不能为空")
+        return
+      }
       fetch(loginUrl, {
         method: 'post',
         body: JSON.stringify({

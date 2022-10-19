@@ -17,6 +17,7 @@ export default {
     Navbar,
     Atc,
   },
+  
 }
 </script>
 

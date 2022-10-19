@@ -160,7 +160,8 @@ export default {
   created() {
   },
   mounted() {
-     setTimeout(() => {this.selectAllTitle()},300)//只能使用定时器,不然获取不到dom元素
+    this.index = window.localStorage["index"];
+     setTimeout(() => {this.selectAllTitle()},500)//只能使用定时器,不然获取不到dom元素
     this.homeData = JSON.parse(window.localStorage.getItem('atc'))|| {}
     // scroll代表滚动条距离页面顶部距离
     window.addEventListener("scroll", this.dataScroll)

@@ -53,14 +53,14 @@ export default {
   },
   props: {
     // 文章
-    homeData: [{
+    homeData: {
         author: String,
         preview: String,
         title: String,
           // 点赞，查看，评论
           // 图片快照
          snapshot: String,
-    }],
+    },
 
     index: Number
   },
@@ -80,7 +80,6 @@ export default {
     // },
   },
   mounted(){
-    console.log(this.homeData)
   }
 }
 </script>

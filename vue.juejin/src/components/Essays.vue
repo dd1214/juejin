@@ -9,13 +9,14 @@
     <div class="content" ref="essaylist">
       <Essay v-for="(item, index) in homeData"
        :key="index" :homeData="item" :index="index"
-        @click.native="jump2Atc('xiangqingye')" />
+        @click.native="jump2Atc('xiangqingye',index)" />
     </div>
   </div>
 </template>
 
 <script>
 import Essay from '@/components/Essay'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Essays',
@@ -130,6 +131,10 @@ export default {
       }
       // 当加载的文章过多时会有明显卡顿，这种情况下只拿出一部分来渲染
     },
+    actIndex(){
+				return this.$store.state.act_index.actIndex
+			},
+    
   },
   methods: {
     activate(index) {
@@ -142,9 +147,12 @@ export default {
       }, 1000)
     },
     // 点击文章跳转到详情页
-    jump2Atc(pageName) {
+    jump2Atc(pageName,index) {
       // 路由跳转之前校验是否重复跳转到当前路由，是的话则不跳转
       if (this.$route.name != pageName) {
+        //更改index，决定跳转文章索引
+       window.localStorage.setItem("index",0)
+       window.localStorage["index"] = index;
         let newRoute = this.$router.resolve({
           name: pageName,
         })
@@ -167,7 +175,6 @@ export default {
   mounted() {
     // 监听当前列表的最下部元素
     setTimeout(() => {this.observer.observe(this.$refs.essaylist.lastElementChild)},300)
-    
     
   },
   updated() {

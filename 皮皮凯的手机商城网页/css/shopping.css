@@ -176,7 +176,7 @@
     display: block;
     width: 158px;
     height: 38px;
-    /*background: #f25807;*/
+    /*background: #dc89b8;*/
     background: #dc89b8;
     color: #fff;
     text-align: center;
@@ -186,7 +186,7 @@
     margin-right: 20px;
 }
 .pay_a:hover{
-    background: #f25807;
+    background: #dc89b8;
 }
 
 .trolley_background{
