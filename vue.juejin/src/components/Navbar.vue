@@ -27,12 +27,12 @@
 
           <!-- 完整的导航链接 -->
           <el-menu default-active="1" class="nav-link" mode="horizontal">
-            <el-menu-item index="1"><el-link>首页</el-link></el-menu-item>
+            <el-menu-item index="1"><el-link @click.native="jump('home')" >首页</el-link></el-menu-item>
             <el-menu-item index="2"><el-link href="https://juejin.cn/pins" target="_blank">沸点</el-link></el-menu-item>
             <el-menu-item index="3"><el-link href="https://juejin.cn/course" target="_blank">课程</el-link></el-menu-item>
             <el-menu-item index="4"><el-link href="https://juejin.cn/live" target="_blank">直播</el-link></el-menu-item>
             <el-menu-item index="5"><el-link href="https://juejin.cn/events/all" target="_blank">活动</el-link></el-menu-item>
-            <el-menu-item index="6"><el-link @click.native="jump2Market('shangcheng')" target="_blank">商城</el-link></el-menu-item>
+            <el-menu-item index="6"><el-link @click.native="jump('shangcheng')" target="_blank">商城</el-link></el-menu-item>
             <el-menu-item index="7"><el-link href="" target="_blank">APP</el-link></el-menu-item>
             <el-menu-item index="8"><el-link href="" target="_blank">插件</el-link></el-menu-item>
           </el-menu>
@@ -50,7 +50,7 @@
             <el-dropdown split-button type="primary" size="small" class="originator-drop">
               创作者中心
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item @click.native="jump2AtcEditor('bianji')"> <img src="@/assets/write-article.svg" /> 写文章 </el-dropdown-item>
+                <el-dropdown-item @click.native="jump('bianji')"> <img src="@/assets/write-article.svg" /> 写文章 </el-dropdown-item>
                 <el-dropdown-item > <img src="@/assets/boiling.svg" /> 发沸点 </el-dropdown-item>
                 <el-dropdown-item > <img src="@/assets/coding.svg" /> 写代码 </el-dropdown-item>
               </el-dropdown-menu>
@@ -127,7 +127,7 @@
                   <li class="drop-down">
                     <div class="open-menu">
                       <img src="@/assets/info/homepage.jpg" alt="" ip="image" />
-                      <el-link :underline="false" @click="jump2PersonalPage('gerenzhuye')">我的主页</el-link>
+                      <el-link :underline="false" @click="jump('gerenzhuye')">我的主页</el-link>
                     </div>
                   </li>
                   <li class="drop-down">
@@ -198,7 +198,7 @@ export default {
   methods: {
     ...mapMutations('loginOptions', { openLoginDialog: 'OPEN_LOGIN_DIALOG', logout: 'LOGOUT' }),
 
-    jump2PersonalPage(pageName) {
+    jump(pageName) {
       // 路由跳转之前校验是否重复跳转到当前路由，是的话则不跳转
       if (this.$route.name != pageName) {
         let newRoute = this.$router.resolve({
@@ -207,22 +207,7 @@ export default {
         window.open(newRoute.href, '_blank')
       }
     },
-    jump2AtcEditor(pageName){
-      if (this.$route.name != pageName) {
-        let newRoute = this.$router.resolve({
-          name: pageName,
-        })
-        window.open(newRoute.href, '_blank')
-      }
-    },
-    jump2Market(pageName){
-       if (this.$route.name != pageName) {
-        let newRoute = this.$router.resolve({
-          name: pageName,
-        })
-        window.open(newRoute.href, '_blank')
-      }
-    }
+    
        
     }
   }

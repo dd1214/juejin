@@ -5,40 +5,40 @@
     <!-- 稿件信息 -->
     <div class="info">
       <div>
-        <span>{{ homeData.author }}</span>
+        <span>{{ essay.info.author }}</span>
       </div>
-      <!-- <div>{{ dateFromNow }}</div> -->
-      <!-- <div>
+      <div>{{ dateFromNow }}</div>
+      <div>
         <span v-for="(item, index) in essay.info.category" :key="index">{{
-          item标签
+          item
         }}</span>
-      </div> -->
-    </div> 
+      </div>
+    </div>
     <!-- 稿件内容预览 -->
     <div class="content">
       <div class="text">
-        <div class="title">{{ homeData.title }}</div>
-        <div class="preview">{{ homeData.preview }}</div>
+        <div class="title">{{ essay.content.title }}</div>
+        <div class="preview">{{ essay.content.preview }}</div>
         <!-- 查看、点赞、评论 -->
         <div class="feedback">
           <ul>
             <li>
               <img src="@/assets/view.png" />
-              <span>{{ feedbackProcess(100) }}</span>
+              <span>{{ feedbackProcess(essay.feedback.view) }}</span>
             </li>
             <li>
               <img src="@/assets/like.png" />
-              <span>{{ feedbackProcess(100) }}</span>
+              <span>{{ feedbackProcess(essay.feedback.like) }}</span>
             </li>
             <li>
               <img src="@/assets/comments.png" />
-              <span>{{ feedbackProcess(100) }}</span>
+              <span>{{ feedbackProcess(essay.feedback.comments) }}</span>
             </li>
           </ul>
         </div>
       </div>
       <!-- 可能存在的快照 -->
-      <img v-if="homeData.snapshot" :src="homeData.snapshot" class="snapshot" />
+      <img v-if="essay.snapshot" :src="essay.snapshot" class="snapshot" />
     </div>
   </div>
 </template>
@@ -53,15 +53,27 @@ export default {
   },
   props: {
     // 文章
-    homeData: [{
+    essay: {
+      // 文章第一行
+      info: {
         author: String,
-        preview: String,
+        date: String,
+        category: Array,
+      },
+      // 文章内容区域
+      content: {
         title: String,
-          // 点赞，查看，评论
-          // 图片快照
-         snapshot: String,
-    }],
-
+        preview: String,
+      },
+      // 点赞，查看，评论
+      feedback: {
+        view: Number,
+        like: Number,
+        comments: Number,
+      },
+      // 图片快照（不一定有）
+      snapshot: String,
+    },
     index: Number
   },
   methods: {
@@ -75,12 +87,12 @@ export default {
     },
   },
   computed: {
-    // dateFromNow() {
-    //   return moment(this.essay.info.date, moment.ISO_8601).fromNow()
-    // },
+    dateFromNow() {
+      return moment(this.essay.info.date, moment.ISO_8601).fromNow()
+    },
   },
   mounted(){
-    console.log(this.homeData)
+    console.log(this.index)
   }
 }
 </script>

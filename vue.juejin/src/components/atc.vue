@@ -7,11 +7,11 @@
       
     </div>
     <div class="atc-main">
-      <div class="article-title">前端设计模式|青训营笔记</div>
+      <div class="article-title">{{this.homeData[this.index].title}}</div>
       <div class="author-info flex">
-        <el-avatar>User</el-avatar>
+        <el-avatar><img :src=this.homeData[this.index].avatar > </el-avatar>
         <div class="author-info-box">
-          <div class="author-name">李泽宇</div>
+          <div class="author-name">{{this.homeData[this.index].author}}</div>
           <div class="meta-box">
             <time>2022年08月26日 22:41</time><span>·&nbsp;&nbsp;阅读 1111</span>
           </div>
@@ -19,47 +19,14 @@
         <button class="follow-button">+ 关注</button>
       </div>
       <div class="markdown-body">
-        <h2>一、什么是设计模式？</h2>
-
-        <p>设计模式（Design
-          pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。
-        </p>
-
-        <p>设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。
-          毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理地运用设计模式可以完美地解决很多问题，每种模式在现实中都有相应的原理来与之对应，每种模式都描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是设计模式能被广泛应用的原因。
-        </p>
-        <h2>二、为什么要学设计模式？</h2>
-        <p>* 写出优雅的代码</p>
-        <p>* 写出优雅的代码</p>
-        <p>* 写出优雅的代码</p>
-        <h2>三、设计模式的类型</h2>
-        <h3>创建型：如何创建一个对象</h3>
-        <h3>结构型：如何灵活地将对象组装成较大的结构</h3>
-        <h3>行为型：负责对象间的高效通信和职责划分</h3>
-        <img
-          src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47116068a681424492ccfa3b9dd94fec~tplv-k3u1fbpfcp-watermark.image"
-          style="width:100%">
-        <h2>四、前端涉及到的设计模型</h2>
-        <h3>浏览器中的设计模型</h3>
-        >**单例模式：** 定义一个全局唯一访问对象
-        <br>应用场景：缓存、全局状态管理等。
-        >**发布订阅模式：** 一种订阅机制，可在被订阅对象发生变化时通知订阅者
-        <br>应用场景：从系统架构之间的解耦，到业务中一些现实模式，像邮件订阅，上线订阅等等，应用广泛。
-        <h3>JavaScript中的设计模式：</h3>
-        >**原型模式：** 复制已有对象来创建新的对象<br />
-        应用场景：JS中对象创建的基本模式<br>
-        >**代理模式：** 可自定义控制对原对象的访问方式，并允许在更新前后做一些额外处理<br />
-        应用场景：监控，代理工具，前端框架实现等等。<br />
-        >**迭代器模式：** 在不暴露数据类型的情况下访问集合中的数据<br />
-        应用场景：数据结构有多种数据类型：列表、树等，提供通用操作接口。<br />
-        <h3>前端框架中的设计模式：</h3>
-        >**代理模式：** 可自定义控制对原对象的访问方式，并允许在更新前后做一些额外处理<br/>
-        应用场景：监控，代理工具，前端框架实现等等。- Web 技术栈<br/>
-
-
-        >**组合模式：** 可多个对象组合使用，也可单个对象独立使用。<br/>
-        应用场景：DOM，前端组件，文件目录，部门。<br/>
-      </div>
+        <MarkdownPro
+        :value="this.homeData[this.index].content"
+        v-if="this.homeData"
+        :isPreview="true"
+        :bordered="false"
+        style="height: auto"
+        />
+        </div>
       <!-- <div class="comment-box">评论
         <div class="comment">
 
@@ -85,8 +52,8 @@
           目录
         </div>
         <hr style="opacity: 25%" />
-        <div class="catalog">
-          <el-tabs @tab-click="handleClick" v-model="activeName" :tab-position="tabPosition" style="height: auto">
+        <div class="catalog" v-if="catalogue">
+          <el-tabs @tab-click="handleClick" v-model="activeName" :tab-position="tabPosition" class="catalogue">
             <el-tab-pane :name="'tab' + index" :class="item.lev" v-for="(item, index) in navList" :key="index"
               :label="item.name"></el-tab-pane>
           </el-tabs>
@@ -101,15 +68,11 @@
 </template>
 <script>
 // import Like from './like.vue'
-
+import { MarkdownPro } from 'vue-meditor'
 export default {
   name: 'Atc',
   components: {
-    // Like
-  },
-  name: 'Atc',
-  components: {
-    // Like
+    MarkdownPro
   },
   data() {
     return {
@@ -117,6 +80,9 @@ export default {
       tabPosition: "right",
       scroll: "",
       navList: [],
+      homeData:'',
+      index:5,
+      catalogue:false,
     }
   },
   methods: {
@@ -155,6 +121,7 @@ export default {
     selectAllTitle() {
       //获取h1-6标题
       let title = document.querySelectorAll("h1,h2,h3,h4,h5,h6")
+      if(!title.length==0){this.catalogue=true}//如果找不到页面的目录，干脆就不显示目录了
       this.navList = Array.from(title) //将获取的title存储到navList数组中
       this.navList.forEach((item) => {
         //遍历navList数组，将每个title存储为item.name
@@ -190,12 +157,14 @@ export default {
       this.loadScroll()
     },
   },
-  created() {  },
+  created() {
+  },
   mounted() {
+     setTimeout(() => {this.selectAllTitle()},300)//只能使用定时器,不然获取不到dom元素
+    this.homeData = JSON.parse(window.localStorage.getItem('atc'))|| {}
     // scroll代表滚动条距离页面顶部距离
     window.addEventListener("scroll", this.dataScroll)
     window.addEventListener("scroll", this.logScrollHeight)
-    this.selectAllTitle()
     this.$nextTick(() => {
       setTimeout(() => {
         let navs = document.querySelectorAll(".el-tabs__item")
@@ -222,7 +191,7 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   font-weight: bold;
 }
@@ -380,7 +349,10 @@ h6 {
   justify-content: center;
   align-items: flex-start;
 }
-
+.catalogue{
+  float:left;
+  height:350px;
+}
 @media screen and (max-width: 1000px) {
   .aside {
     display: none;

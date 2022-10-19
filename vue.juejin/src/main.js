@@ -7,7 +7,6 @@ import '@/css/element-variables.scss'
 import css from './assets/css.css'
 
 import store from '@/store'
-
 Vue.config.productionTip = false
 new Vue({
   router,

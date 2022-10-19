@@ -7,7 +7,9 @@
       <li @click="activate(3)" :class="{ active: activeIndex == 3 }">热榜</li>
     </ul>
     <div class="content" ref="essaylist">
-      <Essay v-for="(essay, index) in essays" :key="index" :essay="essay" @click.native="jump2Atc('xiangqingye')" />
+      <Essay v-for="(item, index) in homeData"
+       :key="index" :homeData="item" :index="index"
+        @click.native="jump2Atc('xiangqingye')" />
     </div>
   </div>
 </template>
@@ -47,213 +49,8 @@ export default {
           threshold: [0.75],
         }
       ),
-
       // 初始文章信息
-      //#region
-      essays: [
-        {
-          info: {
-            author: '掘金安东尼',
-            date: '2022-08-10',
-            category: ['前端', '面试'],
-            id:1,
-          },
-          content: {
-            title: 'JavaScript 中如何取消请求',
-            preview: '本篇带来 XMLHttpRequest、Fetch 和 axios 分别是怎样“取消请求”的。闲话少说，冲就完事了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-          },
-          feedback: {
-            view: 9364,
-            like: 527,
-            comments: 337,
-          },
-          detail:{}
-        },
-        {
-          info: {
-            author: 'Big shark@LX',
-            date: '2021-11-27',
-            category: ['前端', 'JavaScript', 'TypeScript'],
-          },
-          content: {
-            title: '最全的 TypeScript 学习指南',
-            preview: '前言 Hello 大家好 我是鲨鱼哥 这次给大家带来的是我曾经非常嫌弃 如今却爱不释手的 TS 技术 哈哈',
-          },
-          feedback: {
-            view: 61407,
-            like: 1428,
-            comments: 87,
-          },
-          snapshot: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e15e04fd93f4eb18d310e19526ce181~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?',
-        },
-        {
-          info: {
-            author: '掘金安东尼',
-            date: '2022-08-10',
-            category: ['前端', '面试'],
-          },
-          content: {
-            title: 'JavaScript 中如何取消请求',
-            preview: '本篇带来 XMLHttpRequest、Fetch 和 axios 分别是怎样“取消请求”的。闲话少说，冲就完事了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-          },
-          feedback: {
-            view: 9364,
-            like: 527,
-            comments: 337,
-          },
-        },
-        {
-          info: {
-            author: 'Big shark@LX',
-            date: '2021-11-27',
-            category: ['前端', 'JavaScript', 'TypeScript'],
-          },
-          content: {
-            title: '最全的 TypeScript 学习指南',
-            preview: '前言 Hello 大家好 我是鲨鱼哥 这次给大家带来的是我曾经非常嫌弃 如今却爱不释手的 TS 技术 哈哈',
-          },
-          feedback: {
-            view: 61407,
-            like: 1428,
-            comments: 87,
-          },
-          snapshot: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e15e04fd93f4eb18d310e19526ce181~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?',
-        },
-        {
-          info: {
-            author: '掘金安东尼',
-            date: '2022-08-10',
-            category: ['前端', '面试'],
-          },
-          content: {
-            title: 'JavaScript 中如何取消请求',
-            preview: '本篇带来 XMLHttpRequest、Fetch 和 axios 分别是怎样“取消请求”的。闲话少说，冲就完事了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-          },
-          feedback: {
-            view: 9364,
-            like: 527,
-            comments: 337,
-          },
-        },
-        {
-          info: {
-            author: 'Big shark@LX',
-            date: '2021-11-27',
-            category: ['前端', 'JavaScript', 'TypeScript'],
-          },
-          content: {
-            title: '最全的 TypeScript 学习指南',
-            preview: '前言 Hello 大家好 我是鲨鱼哥 这次给大家带来的是我曾经非常嫌弃 如今却爱不释手的 TS 技术 哈哈',
-          },
-          feedback: {
-            view: 61407,
-            like: 1428,
-            comments: 87,
-          },
-          snapshot: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e15e04fd93f4eb18d310e19526ce181~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?',
-        },
-        {
-          info: {
-            author: '掘金安东尼',
-            date: '2022-08-10',
-            category: ['前端', '面试'],
-          },
-          content: {
-            title: 'JavaScript 中如何取消请求',
-            preview: '本篇带来 XMLHttpRequest、Fetch 和 axios 分别是怎样“取消请求”的。闲话少说，冲就完事了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-          },
-          feedback: {
-            view: 9364,
-            like: 527,
-            comments: 337,
-          },
-        },
-        {
-          info: {
-            author: 'Big shark@LX',
-            date: '2021-11-27',
-            category: ['前端', 'JavaScript', 'TypeScript'],
-          },
-          content: {
-            title: '最全的 TypeScript 学习指南',
-            preview: '前言 Hello 大家好 我是鲨鱼哥 这次给大家带来的是我曾经非常嫌弃 如今却爱不释手的 TS 技术 哈哈',
-          },
-          feedback: {
-            view: 61407,
-            like: 1428,
-            comments: 87,
-          },
-          snapshot: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e15e04fd93f4eb18d310e19526ce181~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?',
-        },
-        {
-          info: {
-            author: '掘金安东尼',
-            date: '2022-08-10',
-            category: ['前端', '面试'],
-          },
-          content: {
-            title: 'JavaScript 中如何取消请求',
-            preview: '本篇带来 XMLHttpRequest、Fetch 和 axios 分别是怎样“取消请求”的。闲话少说，冲就完事了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-          },
-          feedback: {
-            view: 9364,
-            like: 527,
-            comments: 337,
-          },
-        },
-        {
-          info: {
-            author: 'Big shark@LX',
-            date: '2021-11-27',
-            category: ['前端', 'JavaScript', 'TypeScript'],
-          },
-          content: {
-            title: '最全的 TypeScript 学习指南',
-            preview: '前言 Hello 大家好 我是鲨鱼哥 这次给大家带来的是我曾经非常嫌弃 如今却爱不释手的 TS 技术 哈哈',
-          },
-          feedback: {
-            view: 61407,
-            like: 1428,
-            comments: 87,
-          },
-          snapshot: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e15e04fd93f4eb18d310e19526ce181~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?',
-        },
-        {
-          info: {
-            author: '掘金安东尼',
-            date: '2022-08-10',
-            category: ['前端', '面试'],
-          },
-          content: {
-            title: 'JavaScript 中如何取消请求',
-            preview: '本篇带来 XMLHttpRequest、Fetch 和 axios 分别是怎样“取消请求”的。闲话少说，冲就完事了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-          },
-          feedback: {
-            view: 9364,
-            like: 527,
-            comments: 337,
-          },
-        },
-        {
-          info: {
-            author: 'Big shark@LX',
-            date: '2021-11-27',
-            category: ['前端', 'JavaScript', 'TypeScript'],
-          },
-          content: {
-            title: '最全的 TypeScript 学习指南',
-            preview: '前言 Hello 大家好 我是鲨鱼哥 这次给大家带来的是我曾经非常嫌弃 如今却爱不释手的 TS 技术 哈哈',
-          },
-          feedback: {
-            view: 61407,
-            like: 1428,
-            comments: 87,
-          },
-          snapshot: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e15e04fd93f4eb18d310e19526ce181~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?',
-        },
-      ],
-      //#endregion
-
+      homeData:'',
       // 测试无限滚动，用来新增的新文章数据
       newEssays: [
         {
@@ -323,8 +120,7 @@ export default {
           snapshot: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e15e04fd93f4eb18d310e19526ce181~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?',
         },
       ],
-
-      //
+      
     }
   },
   computed: {
@@ -360,9 +156,19 @@ export default {
     //   // 发送 ajax 请求获取 essays
     // }
   },
+  created(){
+    this.homeData = JSON.parse(window.localStorage.getItem('atc'))|| {}//拿到首页的文章数据
+    for (const key in this.homeData) {
+      // 删除content文章详情，以及avatar头像属性
+      delete this.homeData[key].content;
+      delete this.homeData[key].avatar;
+    }
+  },
   mounted() {
     // 监听当前列表的最下部元素
-    this.observer.observe(this.$refs.essaylist.lastElementChild)
+    setTimeout(() => {this.observer.observe(this.$refs.essaylist.lastElementChild)},300)
+    
+    
   },
   updated() {
     // 更新后，如果使得文章列表长度发生变化，则重新监听最下方的元素
